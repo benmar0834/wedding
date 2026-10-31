@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="frameGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9E6" />
+      <stop offset="40%" stop-color="#E5C158" />
+      <stop offset="70%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#8C6517" />
+    </linearGradient>
+  </defs>
+
+  <!-- Esquina Superior Izquierda -->
+  <g>
+    <path d="M4 45 L4 14 C4 8.5 8.5 4 14 4 L45 4" stroke="url(#frameGold)" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M8 35 L8 16 C8 11.5 11.5 8 16 8 L35 8" stroke="url(#frameGold)" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.8" />
+    <circle cx="14" cy="14" r="2.2" fill="url(#frameGold)" />
+    <path d="M4 22 C10 20 16 16 18 10 C20 4 22 4 22 4" stroke="url(#frameGold)" stroke-width="0.9" fill="none" />
+  </g>
+
+  <!-- Esquina Superior Derecha -->
+  <g transform="translate(200, 0) scale(-1, 1)">
+    <path d="M4 45 L4 14 C4 8.5 8.5 4 14 4 L45 4" stroke="url(#frameGold)" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M8 35 L8 16 C8 11.5 11.5 8 16 8 L35 8" stroke="url(#frameGold)" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.8" />
+    <circle cx="14" cy="14" r="2.2" fill="url(#frameGold)" />
+    <path d="M4 22 C10 20 16 16 18 10 C20 4 22 4 22 4" stroke="url(#frameGold)" stroke-width="0.9" fill="none" />
+  </g>
+
+  <!-- Esquina Inferior Izquierda -->
+  <g transform="translate(0, 200) scale(1, -1)">
+    <path d="M4 45 L4 14 C4 8.5 8.5 4 14 4 L45 4" stroke="url(#frameGold)" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M8 35 L8 16 C8 11.5 11.5 8 16 8 L35 8" stroke="url(#frameGold)" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.8" />
+    <circle cx="14" cy="14" r="2.2" fill="url(#frameGold)" />
+    <path d="M4 22 C10 20 16 16 18 10 C20 4 22 4 22 4" stroke="url(#frameGold)" stroke-width="0.9" fill="none" />
+  </g>
+
+  <!-- Esquina Inferior Derecha -->
+  <g transform="translate(200, 200) scale(-1, -1)">
+    <path d="M4 45 L4 14 C4 8.5 8.5 4 14 4 L45 4" stroke="url(#frameGold)" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M8 35 L8 16 C8 11.5 11.5 8 16 8 L35 8" stroke="url(#frameGold)" stroke-width="0.8" stroke-dasharray="2 2" opacity="0.8" />
+    <circle cx="14" cy="14" r="2.2" fill="url(#frameGold)" />
+    <path d="M4 22 C10 20 16 16 18 10 C20 4 22 4 22 4" stroke="url(#frameGold)" stroke-width="0.9" fill="none" />
+  </g>
+</svg>

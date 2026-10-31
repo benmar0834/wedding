@@ -1,0 +1,169 @@
+/* ===================================================================
+   J & M — THE WEDDING EXPERIENCE
+   Scratch-to-Reveal Experience (Nocturne Luxury Edition)
+   =================================================================== */
+
+.scratch-section {
+  padding: 7rem 1.5rem;
+  background: linear-gradient(180deg, rgba(14, 8, 20, 0.5) 0%, rgba(26, 14, 38, 0.6) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.scratch-card-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--gradient-night-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid var(--color-border-gold);
+  border-radius: 20px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(229, 193, 88, 0.2);
+  padding: 3rem 2.2rem;
+  text-align: center;
+  position: relative;
+}
+
+.scratch-card-container::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px dashed rgba(229, 193, 88, 0.25);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.scratch-stage {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  aspect-ratio: 4 / 3;
+  margin: 0 auto 1.8rem;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+  border: 2px solid var(--color-gold);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  cursor: grab;
+}
+
+.scratch-stage:active {
+  cursor: grabbing;
+}
+
+/* La foto escondida debajo */
+.scratch-hidden-content {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.scratch-hidden-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* El lienzo (canvas) que se raspa encima */
+.scratch-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  transition: opacity 0.85s ease, filter 0.85s ease;
+}
+
+.scratch-canvas.revealed {
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(10px);
+}
+
+/* Mensaje Emocional tras Revelar */
+.scratch-reveal-message {
+  font-family: var(--font-serif-display);
+  font-size: 1.55rem;
+  line-height: 1.5;
+  color: var(--color-gold-light);
+  margin-top: 1.8rem;
+  padding: 1.4rem;
+  border-radius: 12px;
+  background: rgba(36, 20, 52, 0.8);
+  border: 1px solid var(--color-border-gold);
+  box-shadow: 0 0 25px rgba(229, 193, 88, 0.25);
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  text-shadow: 0 0 12px rgba(229, 193, 88, 0.3);
+}
+
+.scratch-reveal-message.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Barra de progreso de raspado sutil */
+.scratch-progress-wrapper {
+  max-width: 320px;
+  margin: 0 auto 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.scratch-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(229, 193, 88, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.scratch-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--gradient-gold-foil);
+  box-shadow: 0 0 8px var(--color-gold);
+  border-radius: 3px;
+  transition: width 0.2s ease;
+}
+
+/* Botón alternativo de revelado */
+.scratch-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-reveal-alt {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  background: rgba(22, 13, 32, 0.7);
+  border: 1px solid var(--color-border-gold);
+  padding: 0.65rem 1.6rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.btn-reveal-alt:hover {
+  background: var(--gradient-gold-foil);
+  color: #120A1A;
+  box-shadow: 0 0 20px rgba(229, 193, 88, 0.5);
+}

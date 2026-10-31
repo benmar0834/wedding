@@ -1,0 +1,257 @@
+/* ===================================================================
+   J & M — THE WEDDING EXPERIENCE
+   RSVP (Confirmación de Asistencia — Luxury Night Edition)
+   =================================================================== */
+
+.rsvp-section {
+  padding: 7rem 1.5rem;
+  background: linear-gradient(180deg, rgba(12, 7, 18, 0.95) 0%, rgba(24, 13, 36, 0.9) 100%);
+  position: relative;
+}
+
+.rsvp-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--gradient-night-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1.5px solid var(--color-border-gold);
+  border-radius: 20px;
+  padding: 3.8rem 3rem;
+  box-shadow: var(--shadow-card-night);
+  position: relative;
+}
+
+.rsvp-card::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border: 1px dashed rgba(229, 193, 88, 0.25);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+/* Caja de Código de Invitación Personalizada */
+.invitation-code-box {
+  background: rgba(38, 20, 54, 0.85);
+  border: 1px dashed var(--color-border-gold);
+  border-radius: 14px;
+  padding: 1.3rem 1.6rem;
+  margin-bottom: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.invitation-code-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.invitation-code-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.invitation-code-name {
+  font-family: var(--font-serif-display);
+  font-size: 1.25rem;
+  color: #FFFDF9;
+  font-weight: 600;
+}
+
+.invitation-code-input-group {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.invitation-code-input {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--color-border-gold);
+  border-radius: 8px;
+  background: #140A1C;
+  color: #FFFDF9;
+  text-transform: uppercase;
+}
+
+/* Campos de Formulario */
+.form-group {
+  margin-bottom: 1.8rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.6rem;
+}
+
+.form-label .required {
+  color: #FF859A;
+  margin-left: 2px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  font-family: var(--font-serif-body);
+  font-size: 1.2rem;
+  color: #FFFDF9;
+  background: #12091A;
+  border: 1.5px solid rgba(229, 193, 88, 0.35);
+  border-radius: 10px;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.form-control:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 20px rgba(229, 193, 88, 0.3);
+  background: #180D22;
+}
+
+textarea.form-control {
+  min-height: 110px;
+  resize: vertical;
+}
+
+/* Selector de Asistencia */
+.attendance-options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.attendance-radio-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 1.1rem;
+  background: #12091A;
+  border: 1.5px solid rgba(229, 193, 88, 0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: var(--transition-smooth);
+}
+
+.attendance-radio-label:hover {
+  border-color: var(--color-gold);
+  background: rgba(38, 20, 54, 0.6);
+  color: #FFFDF9;
+}
+
+.attendance-radio-label.selected {
+  background: var(--gradient-gold-foil);
+  border-color: transparent;
+  color: #120A1A;
+  box-shadow: 0 0 25px rgba(229, 193, 88, 0.5);
+  font-weight: 700;
+}
+
+.attendance-radio-label input[type="radio"] {
+  display: none;
+}
+
+/* Alertas de Confirmación */
+.rsvp-alert {
+  padding: 1.3rem;
+  border-radius: 10px;
+  margin-top: 1.6rem;
+  text-align: center;
+  font-size: 1.1rem;
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+.rsvp-alert.success {
+  display: block;
+  background: rgba(22, 60, 30, 0.85);
+  color: #A3E7B2;
+  border: 1px solid #4CAF50;
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+}
+
+.rsvp-alert.error {
+  display: block;
+  background: rgba(70, 18, 26, 0.85);
+  color: #FFB3BA;
+  border: 1px solid #E53935;
+  box-shadow: 0 0 20px rgba(229, 57, 53, 0.3);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .rsvp-card {
+    padding: 2.6rem 1.6rem;
+  }
+
+  .attendance-options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================================================
+   MODO DÍA — FORMULARIO DE CONFIRMACIÓN RSVP
+   =================================================================== */
+[data-theme="day"] .rsvp-section {
+  background: linear-gradient(180deg, rgba(250, 247, 242, 0.95) 0%, rgba(244, 239, 230, 0.9) 100%);
+}
+
+[data-theme="day"] .rsvp-card {
+  background: linear-gradient(145deg, #FFFFFF 0%, #FAF5ED 100%);
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 15px 45px rgba(74, 59, 62, 0.1);
+}
+
+[data-theme="day"] .invitation-code-box {
+  background: #F8F3EA;
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+[data-theme="day"] .attendance-option {
+  background: #FFFFFF;
+  border-color: rgba(212, 175, 55, 0.35);
+  color: #2D2326;
+}
+
+[data-theme="day"] .attendance-option:hover {
+  border-color: #D4AF37;
+}
+
+[data-theme="day"] .attendance-option.selected {
+  background: rgba(212, 175, 55, 0.12);
+  border-color: #D4AF37;
+  color: #8C6517;
+}
+
+[data-theme="day"] .form-label {
+  color: #2D2326;
+}
+

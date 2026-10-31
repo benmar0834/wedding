@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nightGoldGift" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF0" />
+      <stop offset="25%" stop-color="#F2D785" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="75%" stop-color="#FFF1BE" />
+      <stop offset="100%" stop-color="#805B16" />
+    </linearGradient>
+    <radialGradient id="giftNightBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#241533" />
+      <stop offset="100%" stop-color="#0E0814" />
+    </radialGradient>
+    <filter id="nightGiftGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#E5C158" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <g filter="url(#nightGiftGlow)">
+    <circle cx="50" cy="50" r="44" fill="url(#giftNightBg)" stroke="url(#nightGoldGift)" stroke-width="1.2"/>
+    <circle cx="50" cy="50" r="41" fill="none" stroke="url(#nightGoldGift)" stroke-width="0.6" stroke-dasharray="2, 3" opacity="0.6"/>
+
+    <!-- Box Body -->
+    <rect x="28" y="46" width="44" height="32" rx="4" fill="#140C1D" stroke="url(#nightGoldGift)" stroke-width="2"/>
+    <!-- Lid -->
+    <rect x="25" y="38" width="50" height="9" rx="2" fill="#140C1D" stroke="url(#nightGoldGift)" stroke-width="2"/>
+
+    <!-- Gold Ribbon Bands -->
+    <rect x="47" y="38" width="6" height="40" fill="url(#nightGoldGift)"/>
+    <line x1="25" y1="42.5" x2="75" y2="42.5" stroke="url(#nightGoldGift)" stroke-width="2"/>
+
+    <!-- Bow Loops -->
+    <path d="M 50 38 C 43 28, 32 28, 37 36 C 40 41, 48 39, 50 38 Z" fill="url(#nightGoldGift)"/>
+    <path d="M 50 38 C 57 28, 68 28, 63 36 C 60 41, 52 39, 50 38 Z" fill="url(#nightGoldGift)"/>
+    <circle cx="50" cy="38" r="3.5" fill="#140C1D" stroke="url(#nightGoldGift)" stroke-width="1.5"/>
+
+    <circle cx="73" cy="30" r="1.5" fill="url(#nightGoldGift)"/>
+  </g>
+</svg>

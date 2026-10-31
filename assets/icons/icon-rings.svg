@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nightGoldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF0" />
+      <stop offset="25%" stop-color="#F2D785" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="75%" stop-color="#FFF1BE" />
+      <stop offset="100%" stop-color="#805B16" />
+    </linearGradient>
+    <radialGradient id="ringNightBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#241533" />
+      <stop offset="100%" stop-color="#0E0814" />
+    </radialGradient>
+    <filter id="nightGlowRing" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#E5C158" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <g filter="url(#nightGlowRing)">
+    <circle cx="50" cy="50" r="44" fill="url(#ringNightBg)" stroke="url(#nightGoldRing)" stroke-width="1.2"/>
+    <circle cx="50" cy="50" r="41" fill="none" stroke="url(#nightGoldRing)" stroke-width="0.6" stroke-dasharray="2, 3" opacity="0.6"/>
+
+    <!-- First Ring (Groom's band) -->
+    <ellipse cx="40" cy="56" rx="19" ry="19" fill="none" stroke="url(#nightGoldRing)" stroke-width="3.5" />
+    <ellipse cx="40" cy="56" rx="16.5" ry="16.5" fill="none" stroke="#FFFFFF" stroke-width="0.6" opacity="0.6"/>
+
+    <!-- Second Ring (Bride's engagement ring) -->
+    <ellipse cx="58" cy="46" rx="19" ry="19" fill="none" stroke="url(#nightGoldRing)" stroke-width="3.2" />
+    <ellipse cx="58" cy="46" rx="16.8" ry="16.8" fill="none" stroke="#FFFFFF" stroke-width="0.6" opacity="0.6"/>
+
+    <!-- Diamond Setting on Second Ring -->
+    <path d="M 58 24 L 63 28 L 61 31 L 55 31 L 53 28 Z" fill="url(#nightGoldRing)"/>
+    <!-- Diamond Gem -->
+    <polygon points="58,16 64,23 58,30 52,23" fill="#FFFFFF" stroke="url(#nightGoldRing)" stroke-width="0.8"/>
+    <polygon points="58,16 58,30 64,23" fill="#E8F4F8" opacity="0.85"/>
+    <polygon points="58,16 58,30 52,23" fill="#D3E5ED" opacity="0.7"/>
+
+    <!-- Celestial Diamond Sparkle -->
+    <path d="M 58 10 Q 58 16 64 16 Q 58 16 58 22 Q 58 16 52 16 Q 58 16 58 10 Z" fill="#FFF8E7"/>
+  </g>
+</svg>

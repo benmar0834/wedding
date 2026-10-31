@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" fill="none">
+  <defs>
+    <linearGradient id="crestGoldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8C6517" stop-opacity="0" />
+      <stop offset="25%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#FFF9E6" />
+      <stop offset="75%" stop-color="#D4AF37" />
+      <stop offset="100%" stop-color="#8C6517" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <!-- Línea central decorativa con punta -->
+  <line x1="10" y1="20" x2="80" y2="20" stroke="url(#crestGoldGrad)" stroke-width="1.2" stroke-linecap="round" />
+  <line x1="120" y1="20" x2="190" y2="20" stroke="url(#crestGoldGrad)" stroke-width="1.2" stroke-linecap="round" />
+  
+  <!-- Volutas izquierdas -->
+  <path d="M70 20 C65 14 55 12 50 18 C46 22 50 28 58 24 C64 21 72 20 78 20" stroke="url(#crestGoldGrad)" stroke-width="1" fill="none" />
+  <path d="M60 20 C56 16 50 16 48 20 C46 24 50 26 54 24" stroke="url(#crestGoldGrad)" stroke-width="0.8" fill="none" />
+
+  <!-- Volutas derechas (espejadas) -->
+  <path d="M130 20 C135 14 145 12 150 18 C154 22 150 28 142 24 C136 21 128 20 122 20" stroke="url(#crestGoldGrad)" stroke-width="1" fill="none" />
+  <path d="M140 20 C144 16 150 16 152 20 C154 24 150 26 146 24" stroke="url(#crestGoldGrad)" stroke-width="0.8" fill="none" />
+
+  <!-- Emblema central: Flor de Lis y Estrella de 8 puntas -->
+  <path d="M100 8 L103 16 L111 19 L103 22 L100 30 L97 22 L89 19 L97 16 Z" fill="url(#crestGoldGrad)" />
+  <circle cx="100" cy="19" r="2.2" fill="#FFFDF9" />
+  
+  <!-- Gotas y perlas simétricas -->
+  <circle cx="86" cy="20" r="1.8" fill="url(#crestGoldGrad)" />
+  <circle cx="114" cy="20" r="1.8" fill="url(#crestGoldGrad)" />
+  <circle cx="35" cy="20" r="1.4" fill="url(#crestGoldGrad)" />
+  <circle cx="165" cy="20" r="1.4" fill="url(#crestGoldGrad)" />
+</svg>

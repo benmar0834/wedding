@@ -1,0 +1,286 @@
+/* ===================================================================
+   J & M — THE WEDDING EXPERIENCE
+   Private Admin Dashboard & Guestbook (Luxury Night Edition)
+   =================================================================== */
+
+/* Libro de Deseos / Firmas */
+.guestbook-section {
+  padding: 7rem 1.5rem;
+  background: linear-gradient(180deg, rgba(20, 11, 30, 0.8) 0%, rgba(10, 6, 15, 0.95) 100%);
+  position: relative;
+}
+
+.guestbook-container {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.guestbook-form-card {
+  background: var(--gradient-night-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid var(--color-border-gold);
+  border-radius: 18px;
+  padding: 2.8rem;
+  box-shadow: var(--shadow-card-night);
+  margin-bottom: 3.8rem;
+}
+
+.guestbook-messages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.guestbook-message-card {
+  background: linear-gradient(145deg, #1A1024 0%, #100817 100%);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.guestbook-message-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(229, 193, 88, 0.25);
+  border-color: var(--color-gold);
+}
+
+.guestbook-msg-text {
+  font-family: var(--font-serif-body);
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: #FFFDF9;
+  margin-bottom: 1.4rem;
+}
+
+.guestbook-msg-author {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+.guestbook-msg-date {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  color: var(--color-text-light);
+  margin-top: 0.3rem;
+}
+
+/* ===================================================================
+   PANEL PRIVADO DE ADMINISTRACIÓN (NOCTURNO)
+   =================================================================== */
+.admin-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(6, 4, 10, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition-smooth);
+  padding: 1.5rem;
+}
+
+.admin-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.admin-panel-card {
+  background: #140C1D;
+  border: 1.5px solid var(--color-gold);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 980px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.95), 0 0 40px rgba(229, 193, 88, 0.3);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-header {
+  padding: 2rem 2.4rem;
+  background: linear-gradient(135deg, #241436 0%, #160D20 100%);
+  border-bottom: 1px solid var(--color-border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.45rem;
+  color: #FFFDF9;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.admin-close-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--color-gold);
+  transition: var(--transition-smooth);
+}
+
+.admin-close-btn:hover {
+  transform: scale(1.15);
+  color: #FFFFFF;
+}
+
+.admin-body {
+  padding: 2.4rem;
+}
+
+/* Pantalla de Login con PIN */
+.admin-login-screen {
+  max-width: 400px;
+  margin: 3.5rem auto;
+  text-align: center;
+}
+
+.admin-login-screen input {
+  text-align: center;
+  letter-spacing: 0.45em;
+  font-size: 1.8rem;
+  font-family: monospace;
+  margin-bottom: 1.8rem;
+}
+
+/* Estadísticas Resumen */
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1.4rem;
+  margin-bottom: 2.8rem;
+}
+
+.admin-stat-card {
+  background: #1C1027;
+  border: 1px solid var(--color-border-gold);
+  border-radius: 14px;
+  padding: 1.6rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+}
+
+.admin-stat-num {
+  font-family: var(--font-serif-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 0 15px rgba(229, 193, 88, 0.4);
+}
+
+.admin-stat-label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  font-weight: 700;
+}
+
+/* Controles de Búsqueda */
+.admin-controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.admin-search-input {
+  max-width: 340px;
+}
+
+/* Tabla de Invitados */
+.admin-table-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--color-border-gold);
+  border-radius: 12px;
+  margin-bottom: 2.8rem;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  text-align: left;
+}
+
+.admin-table th {
+  background: #241436;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--color-border-gold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.admin-table td {
+  padding: 0.95rem 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #ECE5F0;
+}
+
+.admin-table tr:hover td {
+  background: rgba(46, 24, 66, 0.5);
+}
+
+.badge-attending-yes {
+  background: rgba(22, 60, 30, 0.85);
+  color: #A3E7B2;
+  border: 1px solid #4CAF50;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+.badge-attending-no {
+  background: rgba(70, 18, 26, 0.85);
+  color: #FFB3BA;
+  border: 1px solid #E53935;
+  padding: 0.3rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.72rem;
+}
+
+/* Generador de Códigos */
+.admin-section-subheading {
+  font-family: var(--font-serif-display);
+  font-size: 1.25rem;
+  color: #FFFDF9;
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--color-border-gold);
+  padding-bottom: 0.6rem;
+}
+
+.admin-code-generator-form {
+  display: flex;
+  gap: 0.9rem;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+}

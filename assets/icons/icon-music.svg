@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldMusic" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF8E7" />
+      <stop offset="25%" stop-color="#E5C158" />
+      <stop offset="50%" stop-color="#C5A059" />
+      <stop offset="75%" stop-color="#FBF2CB" />
+      <stop offset="100%" stop-color="#936A18" />
+    </linearGradient>
+    <filter id="musicShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#805B16" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <g filter="url(#musicShadow)">
+    <!-- Connected Beamed Eighth Notes -->
+    <!-- Left Note Head -->
+    <ellipse cx="32" cy="70" rx="9" ry="7" transform="rotate(-20 32 70)" fill="url(#goldMusic)"/>
+    <!-- Left Stem -->
+    <rect x="37" y="24" width="4" height="46" rx="2" fill="url(#goldMusic)"/>
+
+    <!-- Right Note Head -->
+    <ellipse cx="68" cy="62" rx="9" ry="7" transform="rotate(-20 68 62)" fill="url(#goldMusic)"/>
+    <!-- Right Stem -->
+    <rect x="73" y="16" width="4" height="46" rx="2" fill="url(#goldMusic)"/>
+
+    <!-- Beam connecting the two notes -->
+    <polygon points="37,24 77,16 77,24 37,32" fill="url(#goldMusic)"/>
+
+    <!-- Little Hearts & Celestial Stardust Floating -->
+    <path d="M 52 38 C 52 35, 48 33, 46 35 C 44 33, 40 35, 40 38 C 40 42, 46 46, 46 46 C 46 46, 52 42, 52 38 Z" fill="#E8B4B8"/>
+    <path d="M 76 34 Q 76 38 80 38 Q 76 38 76 42 Q 76 38 72 38 Q 76 38 76 34 Z" fill="url(#goldMusic)"/>
+    <circle cx="22" cy="48" r="2" fill="url(#goldMusic)"/>
+    <circle cx="86" cy="54" r="1.5" fill="url(#goldMusic)"/>
+  </g>
+</svg>

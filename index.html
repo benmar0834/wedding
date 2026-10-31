@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>J & M — Casamiento de Juliana & Marcos</title>
+  <meta name="description" content="Invitación oficial de casamiento de Juliana & Marcos. 06/11/2027 a las 21:00 hs en Av. Crisólogo Larralde 1050, Crucecita, Buenos Aires.">
+  <meta name="theme-color" content="#FAF7F2">
+
+  <!-- Favicon Oficial Monograma J & M -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Estilos CSS Modulares de Lujo -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/envelope.css">
+  <link rel="stylesheet" href="css/scratch.css">
+  <link rel="stylesheet" href="css/timeline.css">
+  <link rel="stylesheet" href="css/gallery.css">
+  <link rel="stylesheet" href="css/rsvp.css">
+  <link rel="stylesheet" href="css/admin.css">
+
+  <!-- Detección Inmediata y 100% Automática de Horario en Argentina (Día: 08-20 hs / Noche: 20-08 hs) -->
+  <script>
+    (function() {
+      try {
+        var formatter = new Intl.DateTimeFormat("en-US", {
+          timeZone: "America/Argentina/Buenos_Aires",
+          hour: "numeric",
+          hour12: false
+        });
+        var hour = parseInt(formatter.format(new Date()), 10);
+        var theme = (hour >= 8 && hour < 20) ? "day" : "night";
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {
+        var d = new Date();
+        var h = (d.getUTCHours() - 3 + 24) % 24;
+        var t = (h >= 8 && h < 20) ? "day" : "night";
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Partículas de Luz Ambiental -->
+  <canvas id="ambient-particles"></canvas>
+
+  <!-- ===================================================================
+       EXPERIENCIA DE APERTURA: EL SOBRE Y SELLO DE LACRE DE LUJO
+       =================================================================== -->
+  <div id="envelope-overlay" class="envelope-overlay" aria-modal="true" role="dialog" aria-label="Apertura de Invitación">
+    <!-- Ornamentos Barrocos en las 4 esquinas de la pantalla -->
+    <div class="envelope-corner-ornament top-left"><img src="assets/icons/ornament-corner.svg" alt="" /></div>
+    <div class="envelope-corner-ornament top-right"><img src="assets/icons/ornament-corner.svg" alt="" /></div>
+    <div class="envelope-corner-ornament bottom-left"><img src="assets/icons/ornament-corner.svg" alt="" /></div>
+    <div class="envelope-corner-ornament bottom-right"><img src="assets/icons/ornament-corner.svg" alt="" /></div>
+
+    <!-- Mandala Celestial Guilloché y Aura de Luz -->
+    <div class="envelope-glow"></div>
+    <img src="assets/icons/envelope-mandala.svg" class="envelope-mandala-bg" alt="" />
+
+    <!-- Emblema y Nombres de los Novios -->
+    <div class="envelope-brand-header">
+      <img src="assets/icons/ornament-crest.svg" alt="" class="envelope-crest-icon" />
+      <h2 class="envelope-brand-names">Juliana & Marcos</h2>
+      <span class="envelope-brand-date">06 · Noviembre · 2027</span>
+    </div>
+
+    <div id="envelope-container" class="envelope-container" tabindex="0" role="button" aria-label="Abrir sobre de casamiento">
+      <div class="envelope-body">
+        <!-- Solapa Superior Móvil -->
+        <div class="envelope-flap"></div>
+
+        <!-- Bolsillo Inferior y Lateral -->
+        <div class="envelope-pocket">
+          <div class="envelope-pocket-left"></div>
+          <div class="envelope-pocket-right"></div>
+          <div class="envelope-pocket-bottom"></div>
+        </div>
+
+        <!-- Tarjeta Interior que Emerge -->
+        <div class="invitation-card-preview">
+          <div class="card-preview-inner">
+            <img src="assets/icons/monogram-gold.svg" alt="Monograma J & M" class="card-preview-monogram" />
+            <div class="card-preview-title">JULIANA & MARCOS</div>
+            <div class="card-preview-sub">¡Nos Casamos!</div>
+            <div class="card-preview-date">06 · 11 · 2027 · 21:00 HS</div>
+          </div>
+        </div>
+
+        <!-- Sello de Lacre 3D con Monograma J & M -->
+        <div id="wax-seal" class="wax-seal" title="Abrir invitación">
+          <img src="assets/icons/monogram-wax-seal.svg" alt="Sello de Lacre J & M" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       BARRA DE NAVEGACIÓN PRINCIPAL
+       =================================================================== -->
+  <header class="wedding-navbar">
+    <div class="navbar-inner">
+      <a href="#inicio" class="nav-brand">
+        <img src="assets/icons/monogram-gold.svg" alt="Logo J & M" class="nav-brand-logo" />
+        <span class="nav-brand-text">J & M</span>
+      </a>
+
+      <button id="nav-toggle-btn" class="nav-toggle-btn" aria-label="Abrir menú" aria-expanded="false">
+        <div class="nav-toggle-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+
+      <nav>
+        <ul id="nav-menu" class="nav-menu">
+          <li><a href="#inicio" class="nav-link">Inicio</a></li>
+          <li><a href="#cuenta-regresiva" class="nav-link">La Fecha</a></li>
+          <li><a href="#carta" class="nav-link">Nuestra Carta</a></li>
+          <li><a href="#historia" class="nav-link">Historia</a></li>
+          <li><a href="#fotos" class="nav-link">Galería</a></li>
+          <li><a href="#lugar" class="nav-link">Cómo Llegar</a></li>
+          <li><a href="#dresscode" class="nav-link">Vestimenta</a></li>
+          <li><a href="#asistencia" class="nav-link btn-gold" style="padding: 0.5rem 1.4rem; color: #2D2326;">Confirmar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================================================================
+         SECCIÓN 1: HERO / PORTADA PRINCIPAL
+         =================================================================== -->
+    <section id="inicio" class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <img src="assets/icons/monogram-gold.svg" alt="Monograma J & M" class="hero-monogram" />
+        <span class="hero-eyebrow">Nuestra Boda</span>
+        <h1 class="hero-names">Juliana & Marcos</h1>
+        <span class="hero-tagline">El comienzo de una nueva historia</span>
+
+        <div class="ornament-divider">
+          <div class="ornament-line"></div>
+          <svg class="ornament-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          <div class="ornament-line"></div>
+        </div>
+
+        <div class="hero-details-row">
+          <div class="hero-detail-item">
+            <img src="assets/icons/icon-calendar.svg" alt="Fecha" class="hero-detail-icon" />
+            <span class="hero-detail-label">Fecha</span>
+            <span class="hero-detail-val">06 / 11 / 2027</span>
+          </div>
+          <div class="hero-detail-item">
+            <img src="assets/icons/icon-clock.svg" alt="Hora" class="hero-detail-icon" />
+            <span class="hero-detail-label">Hora</span>
+            <span class="hero-detail-val">21:00 hs</span>
+          </div>
+          <div class="hero-detail-item">
+            <img src="assets/icons/icon-location.svg" alt="Lugar" class="hero-detail-icon" />
+            <span class="hero-detail-label">Lugar</span>
+            <span class="hero-detail-val">Avellaneda, Bs. As.</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#asistencia" class="btn-gold">Confirmá tu asistencia</a>
+          <button type="button" class="btn-outline-gold" id="btn-add-google-cal">Guardar la fecha</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 2: CUENTA REGRESIVA (COUNTDOWN)
+         =================================================================== -->
+    <section id="cuenta-regresiva" class="countdown-section">
+      <div class="container">
+        <div class="section-icon-badge">
+          <img src="assets/icons/icon-clock.svg" alt="Cuenta Regresiva" />
+        </div>
+        <span class="section-eyebrow">Cada segundo cuenta</span>
+        <h2 class="section-title">El comienzo de una nueva historia</h2>
+        <p class="section-subtitle">Esperamos con muchísima ilusión celebrar junto a vos</p>
+
+        <div class="countdown-box">
+          <div class="countdown-unit">
+            <span id="countdown-days" class="countdown-num">00</span>
+            <span class="countdown-label">Días</span>
+          </div>
+          <div class="countdown-unit">
+            <span id="countdown-hours" class="countdown-num">00</span>
+            <span class="countdown-label">Horas</span>
+          </div>
+          <div class="countdown-unit">
+            <span id="countdown-minutes" class="countdown-num">00</span>
+            <span class="countdown-label">Minutos</span>
+          </div>
+          <div class="countdown-unit">
+            <span id="countdown-seconds" class="countdown-num">00</span>
+            <span class="countdown-label">Segundos</span>
+          </div>
+        </div>
+
+        <p id="countdown-message" class="countdown-message">06 de Noviembre de 2027 — 21:00 hs (Hora Argentina)</p>
+
+        <div style="margin-top: 1.8rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <button type="button" class="btn-outline-gold" id="btn-download-ics">Descargar Recordatorio (.ics)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 3: RASPÁ PARA DESCUBRIR (SCRATCH CARD INTERACTIVO)
+         =================================================================== -->
+    <section class="scratch-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-icon-badge">
+            <img src="assets/icons/icon-rings.svg" alt="Sorpresa" />
+          </div>
+          <span class="section-eyebrow">Una sorpresa interactiva</span>
+          <h2 class="section-title">Raspá y Descubrí</h2>
+          <div class="ornament-divider">
+            <div class="ornament-line"></div>
+            <svg class="ornament-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="ornament-line"></div>
+          </div>
+        </div>
+
+        <div class="scratch-card-container">
+          <div id="scratch-stage" class="scratch-stage">
+            <!-- Foto Oculta -->
+            <div class="scratch-hidden-content">
+              <img src="assets/images/scratch-reveal.jpg" alt="Juliana & Marcos ¡Nos casamos!" class="scratch-hidden-image" />
+            </div>
+
+            <!-- Canvas que se raspa -->
+            <canvas id="scratch-canvas" class="scratch-canvas"></canvas>
+          </div>
+
+          <div class="scratch-progress-wrapper">
+            <div class="scratch-progress-bar">
+              <div id="scratch-progress-fill" class="scratch-progress-fill"></div>
+            </div>
+            <span id="scratch-progress-text">0% descubierto</span>
+          </div>
+
+          <div class="scratch-actions">
+            <button type="button" id="btn-scratch-reveal-alt" class="btn-reveal-alt">Revelar foto directamente</button>
+          </div>
+
+          <div id="scratch-reveal-message" class="scratch-reveal-message">
+            ¡Nos casamos! Y queremos compartir esta noche tan especial con vos.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 4: CARTA DE BIENVENIDA (THE WELCOME LETTER)
+         =================================================================== -->
+    <section id="carta" class="letter-section">
+      <div class="container">
+        <div class="letter-card">
+          <img src="assets/icons/monogram-gold.svg" alt="Monograma J & M" class="letter-watermark" />
+
+          <div class="letter-header">
+            <div class="section-icon-badge">
+              <img src="assets/icons/icon-envelope-letter.svg" alt="Carta" />
+            </div>
+            <img src="assets/icons/monogram-gold.svg" alt="Monograma J & M" class="letter-monogram-top" />
+            <div class="ornament-divider">
+              <div class="ornament-line"></div>
+              <svg class="ornament-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              <div class="ornament-line"></div>
+            </div>
+          </div>
+
+          <div class="letter-body">
+            <p class="letter-lead">
+              "Hay momentos en la vida que se vuelven inolvidables no solamente por lo que sucede, sino por las personas con quienes tenemos la suerte de compartirlos."
+            </p>
+
+            <p>
+              Hoy estamos a punto de comenzar uno de los capítulos más hermosos de nuestra historia, y no imaginamos vivirlo sin las personas que forman parte de nuestras vidas.
+            </p>
+
+            <p>
+              Por eso, queremos invitarte a ser parte de una noche muy especial. Una noche llena de amor, sonrisas, abrazos, música y recuerdos que esperamos guardar para siempre en nuestro corazón.
+            </p>
+
+            <p>
+              Cada persona que nos acompaña tiene un lugar único en nuestra historia, y sería una alegría inmensa poder compartir este momento con vos.
+            </p>
+
+            <p>
+              Preparamos esta noche con muchísimo cariño, soñando con cada detalle y esperando que también se convierta en un recuerdo inolvidable para quienes nos acompañen.
+            </p>
+
+            <p>
+              Porque las historias más lindas no se celebran en soledad, sino rodeados de quienes queremos.
+            </p>
+
+            <div class="letter-signature-area">
+              <div class="letter-signature-prefix">Con todo nuestro cariño,</div>
+              <div class="letter-signature-monogram">J & M</div>
+            </div>
+
+            <div class="letter-closing-badge">
+              ¡Te esperamos para celebrar el comienzo de nuestra nueva aventura!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 5: NUESTRA HISTORIA (OUR STORY TIMELINE)
+         =================================================================== -->
+    <section id="historia" class="story-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-icon-badge">
+            <img src="assets/icons/icon-rings.svg" alt="Nuestra Historia" />
+          </div>
+          <span class="section-eyebrow">Nuestro Camino Juntos</span>
+          <h2 class="section-title">Nuestra Historia de Amor</h2>
+          <p class="section-subtitle">Cada paso que dimos nos trajo hasta este momento</p>
+          <div class="ornament-divider">
+            <div class="ornament-line"></div>
+            <svg class="ornament-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="ornament-line"></div>
+          </div>
+        </div>
+
+        <div id="timeline-container" class="timeline-container">
+          <!-- Se puebla dinámicamente desde js/config.js y js/app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 6: GALERÍA DE FOTOS (MEMORIES & VENUE)
+         =================================================================== -->
+    <section id="fotos" class="gallery-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-icon-badge">
+            <img src="assets/icons/icon-champagne.svg" alt="Recuerdos" />
+          </div>
+          <span class="section-eyebrow">Momentos Inolvidables</span>
+          <h2 class="section-title">Galería de Recuerdos</h2>
+          <p class="section-subtitle">Postales de nuestro amor y del salón que nos espera</p>
+          <div class="ornament-divider">
+            <div class="ornament-line"></div>
+            <svg class="ornament-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="ornament-line"></div>
+          </div>
+        </div>
+
+        <!-- Filtros de Galería -->
+        <div class="gallery-tabs">
+          <button type="button" class="gallery-tab-btn active" data-tab="all">Todas las Fotos</button>
+          <button type="button" class="gallery-tab-btn" data-tab="memories">Nuestros Recuerdos</button>
+          <button type="button" class="gallery-tab-btn" data-tab="venue">El Salón de Fiestas</button>
+        </div>
+
+        <!-- Grilla Polaroid de Fotos -->
+        <div id="gallery-grid" class="gallery-grid">
+          <!-- Renderizado por js/gallery.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Lightbox a Pantalla Completa -->
+    <div id="gallery-lightbox" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Visualizador de fotos">
+      <button id="lightbox-close" class="lightbox-btn lightbox-close" aria-label="Cerrar">✕</button>
+      <button id="lightbox-prev" class="lightbox-btn lightbox-prev" aria-label="Foto anterior">❮</button>
+      <button id="lightbox-next" class="lightbox-btn lightbox-next" aria-label="Foto siguiente">❯</button>
+
+      <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="" class="lightbox-img" />
+        <div class="lightbox-caption-bar">
+          <div id="lightbox-caption" class="lightbox-caption"></div>
+          <div id="lightbox-counter" class="lightbox-counter"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         SECCIÓN 7: LUGAR Y MAPA (LOCATION & DIRECTIONS)
+         =================================================================== -->
+    <section id="lugar" class="location-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-icon-badge">
+            <img src="assets/icons/icon-location.svg" alt="Ubicación" />
+          </div>
+          <span class="section-eyebrow">Coordenadas de la Celebración</span>
+          <h2 class="section-title">El lugar donde celebraremos nuestra historia</h2>
+          <div class="ornament-divider">
+            <div class="ornament-line"></div>
+            <svg class="ornament-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="ornament-line"></div>
+          </div>
+        </div>
+
+        <!-- Carrusel de Fotografías del Salón (Formato y Tamaño Uniformes) -->
+        <div class="venue-carousel-card">
+          <div class="venue-carousel-top-bar">
+            <div class="venue-carousel-tag">
+              <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+              <span>Espacio Exclusivo</span>
+            </div>
+            <span class="venue-carousel-counter" id="venue-carousel-counter">Foto 1 de 5</span>
+          </div>
+
+          <div class="venue-carousel" id="venue-carousel" tabindex="0" role="region" aria-label="Galería interactiva del salón">
+            <div class="venue-carousel-track" id="venue-carousel-track">
+              <!-- Slide 1 -->
+              <div class="venue-slide active" data-index="0">
+                <img src="assets/images/salon1.webp" alt="Salón de Eventos - Vista Principal" class="venue-slide-img" loading="lazy" />
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="venue-slide" data-index="1">
+                <img src="assets/images/salon2.webp" alt="Salón de Eventos - Ambientación Cálida" class="venue-slide-img" loading="lazy" />
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="venue-slide" data-index="2">
+                <img src="assets/images/salon3.webp" alt="Salón de Eventos - Celebración" class="venue-slide-img" loading="lazy" />
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="venue-slide" data-index="3">
+                <img src="assets/images/salon4.webp" alt="Salón de Eventos - Pista de Baile" class="venue-slide-img" loading="lazy" />
+              </div>
+
+              <!-- Slide 5 -->
+              <div class="venue-slide" data-index="4">
+                <img src="assets/images/salon5.webp" alt="Salón de Eventos - Entorno" class="venue-slide-img" loading="lazy" />
+              </div>
+            </div>
+
+            <!-- Flechas de Navegación del Carrusel -->
+            <button type="button" class="venue-carousel-nav venue-carousel-prev" id="venue-btn-prev" aria-label="Foto anterior del salón">
+              <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <button type="button" class="venue-carousel-nav venue-carousel-next" id="venue-btn-next" aria-label="Foto siguiente del salón">
+              <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+            </button>
+          </div>
+
+          <!-- Indicadores de Puntos (Dots) -->
+          <div class="venue-carousel-dots" id="venue-carousel-dots">
+            <button type="button" class="venue-dot active" data-index="0" aria-label="Ver foto 1"></button>
+            <button type="button" class="venue-dot" data-index="1" aria-label="Ver foto 2"></button>
+            <button type="button" class="venue-dot" data-index="2" aria-label="Ver foto 3"></button>
+            <button type="button" class="venue-dot" data-index="3" aria-label="Ver foto 4"></button>
+            <button type="button" class="venue-dot" data-index="4" aria-label="Ver foto 5"></button>
+          </div>
+        </div>
+
+        <div class="location-grid">
+          <div class="location-info-card">
+            <div class="location-detail-block">
+              <span class="location-detail-title">
+                <img src="assets/icons/icon-location.svg" style="width: 20px; height: 20px;" alt="Pin" />
+                Dirección
+              </span>
+              <p class="location-detail-desc"><strong>Av. Crisólogo Larralde 1050</strong></p>
+              <p class="location-detail-desc">B1873 Crucecita, Provincia de Buenos Aires, Argentina</p>
+            </div>
+
+            <div class="location-detail-block">
+              <span class="location-detail-title">
+                <img src="assets/icons/icon-rings.svg" style="width: 20px; height: 20px;" alt="Referencia" />
+                Punto de Referencia
+              </span>
+              <p class="location-detail-desc">A metros del <strong>Shopping de Avellaneda</strong></p>
+            </div>
+
+            <div class="location-detail-block">
+              <span class="location-detail-title">
+                <img src="assets/icons/icon-clock.svg" style="width: 20px; height: 20px;" alt="Horario" />
+                Fecha y Horario
+              </span>
+              <p class="location-detail-desc">Sábado <strong>06 de Noviembre de 2027</strong></p>
+              <p class="location-detail-desc">Comienzo: <strong>21:00 hs puntual</strong></p>
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="https://www.google.com/maps/search/?api=1&query=Av.+Cris%C3%B3logo+Larralde+1050,+B1873+Crucecita,+Provincia+de+Buenos+Aires" target="_blank" rel="noopener noreferrer" class="btn-gold" style="font-size: 0.78rem; padding: 0.85rem 1.6rem;">
+                Cómo llegar en Google Maps
+              </a>
+              <a href="https://waze.com/ul?q=Av.+Cris%C3%B3logo+Larralde+1050+Avellaneda" target="_blank" rel="noopener noreferrer" class="btn-outline-gold" style="font-size: 0.78rem; padding: 0.85rem 1.6rem;">
+                Abrir en Waze
+              </a>
+            </div>
+          </div>
+
+          <div class="location-map-card">
+            <iframe 
+              src="https://maps.google.com/maps?q=Av.%20Cris%C3%B3logo%20Larralde%201050%2C%20B1873%20Crucecita%2C%20Provincia%20de%20Buenos%20Aires&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+              loading="lazy" 
+              title="Mapa de ubicación en Av. Crisólogo Larralde 1050, Crucecita"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 8: CÓDIGO DE VESTIMENTA (DRESS CODE)
+         =================================================================== -->
+    <section id="dresscode" class="dress-code-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-icon-badge">
+            <img src="assets/icons/icon-dress-code.svg" alt="Dress Code" />
+          </div>
+          <span class="section-eyebrow">Código de Vestimenta</span>
+          <h2 class="section-title">Una noche para brillar</h2>
+          <div class="ornament-divider">
+            <div class="ornament-line"></div>
+            <svg class="ornament-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="ornament-line"></div>
+          </div>
+        </div>
+
+        <div class="dress-code-wrapper">
+          <div class="dress-code-image-box">
+            <img src="assets/images/dress-code.jpg" alt="Vestimenta Elegante" loading="lazy" />
+          </div>
+
+          <div class="dress-code-content">
+            <div class="dress-code-badge">ELEGANTE</div>
+
+            <div class="dress-code-cards-grid">
+              <div class="dress-card-mini">
+                <h4>
+                  <img src="assets/icons/icon-dress-code.svg" style="width: 20px; height: 20px;" alt="Ellas" />
+                  Para Ellas
+                </h4>
+                <p>Vestido largo, midi sofisticado o conjunto de fiesta elegante. Calzado cómodo para bailar toda la noche.</p>
+              </div>
+
+              <div class="dress-card-mini">
+                <h4>
+                  <img src="assets/icons/icon-dress-code.svg" style="width: 20px; height: 20px;" alt="Ellos" />
+                  Para Ellos
+                </h4>
+                <p>Traje formal oscuro, camisa de vestir, corbata o moño, y zapatos elegantes acordes a la ocasión.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 9: CONFIRMACIÓN DE ASISTENCIA (RSVP)
+         =================================================================== -->
+    <section id="asistencia" class="rsvp-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-icon-badge">
+            <img src="assets/icons/icon-envelope-letter.svg" alt="Asistencia" />
+          </div>
+          <span class="section-eyebrow">Confirmación Oficial</span>
+          <h2 class="section-title">Confirmá tu Asistencia</h2>
+          <p class="section-subtitle">Por favor, indicanos tu respuesta para organizar cada detalle</p>
+          <div class="ornament-divider">
+            <div class="ornament-line"></div>
+            <svg class="ornament-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="ornament-line"></div>
+          </div>
+        </div>
+
+        <div class="rsvp-card">
+          <!-- Reconocimiento de Código Personalizado -->
+          <div id="invitation-code-box" class="invitation-code-box" style="display: none;">
+            <div class="invitation-code-info">
+              <span class="invitation-code-label">Invitación Personalizada</span>
+              <span id="invitation-code-name" class="invitation-code-name"></span>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.8rem;">
+            <span style="font-family: var(--font-sans); font-size: 0.78rem; color: var(--color-text-muted);">
+              ¿Tenés un código de invitación?
+            </span>
+            <div class="invitation-code-input-group">
+              <input type="text" id="invitation-code-input" class="invitation-code-input" placeholder="Ej: FAMILIA-PEREZ" />
+              <button type="button" id="btn-apply-code" class="btn-outline-gold" style="padding: 0.45rem 1rem; font-size: 0.72rem;">Aplicar</button>
+            </div>
+          </div>
+
+          <!-- Formulario RSVP -->
+          <form id="rsvp-form">
+            <div class="form-group">
+              <label for="rsvp-name" class="form-label">Nombre y Apellido Completo <span class="required">*</span></label>
+              <input type="text" id="rsvp-name" class="form-control" placeholder="Ingresá tu nombre completo" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">¿Asistirás al Casamiento? <span class="required">*</span></label>
+              <div class="attendance-options-grid">
+                <label class="attendance-radio-label">
+                  <input type="radio" name="attending" value="si" required />
+                  <span>✨ Sí, confirmo con alegría</span>
+                </label>
+                <label class="attendance-radio-label">
+                  <input type="radio" name="attending" value="no" />
+                  <span>🤍 Lamentablemente no podré</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvp-companions" class="form-label">Acompañantes Adicionales</label>
+              <input type="number" id="rsvp-companions" class="form-control" min="0" max="3" value="0" inputmode="numeric" />
+              <small id="rsvp-companions-help" style="font-family: var(--font-sans); font-size: 0.72rem; color: var(--color-text-light); margin-top: 0.3rem; display: block;">
+                Indicá la cantidad de personas que te acompañan (dentro del cupo asignado a tu invitación).
+              </small>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvp-dietary" class="form-label">Menú Especial / Restricciones Alimentarias</label>
+              <select id="rsvp-dietary" class="form-control">
+                <option value="Ninguna">Menú Tradicional (Ninguna restricción)</option>
+                <option value="Celíaco (Sin TACC)">Celíaco / Sin TACC</option>
+                <option value="Vegetariano">Vegetariano</option>
+                <option value="Vegano">Vegano</option>
+                <option value="Hipertenso (Sin Sal)">Hipertenso (Bajo en sodio / Sin Sal)</option>
+                <option value="Otra">Otra restricción / Alergia específica</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvp-song" class="form-label">Canción que no puede faltar en la fiesta</label>
+              <input type="text" id="rsvp-song" class="form-control" placeholder="¿Qué tema querés bailar sí o sí?" />
+            </div>
+
+            <div class="form-group">
+              <label for="rsvp-message" class="form-label">Mensaje para los Novios (Opcional)</label>
+              <textarea id="rsvp-message" class="form-control" placeholder="Dejanos unas palabras de cariño..."></textarea>
+            </div>
+
+            <div style="text-align: center; margin-top: 2rem;">
+              <button type="submit" class="btn-gold" style="width: 100%; max-width: 340px;">
+                Enviar Confirmación
+              </button>
+            </div>
+
+            <div id="rsvp-alert" class="rsvp-alert"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 10: REGALOS / MUESTRA DE CARIÑO (TRADICIÓN ARGENTINA)
+         =================================================================== -->
+    <section class="gifts-section">
+      <div class="container">
+        <div class="gifts-card">
+          <div class="section-icon-badge">
+            <img src="assets/icons/icon-gift.svg" alt="Regalos" />
+          </div>
+          <span class="section-eyebrow">Muestra de Cariño</span>
+          <h2 class="section-title">Regalos</h2>
+          <p class="section-subtitle" style="font-size: 1.15rem; margin-bottom: 1.5rem;">
+            El mejor regalo es tu presencia y compartir esta noche con nosotros. Si deseás hacernos un presente para nuestra luna de miel, podés hacerlo a través de nuestra cuenta:
+          </p>
+
+          <div class="bank-details-box">
+            <div class="bank-row">
+              <span class="bank-label">Banco</span>
+              <span class="bank-val">Banco Galicia</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Titulares</span>
+              <span class="bank-val">Juliana & Marcos</span>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">Alias</span>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="bank-val">BODA.JULI.MARCOS</span>
+                <button type="button" class="btn-outline-gold btn-copy-data" data-copy="BODA.JULI.MARCOS" style="padding: 0.25rem 0.65rem; font-size: 0.7rem;">Copiar</button>
+              </div>
+            </div>
+            <div class="bank-row">
+              <span class="bank-label">CBU</span>
+              <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <span class="bank-val">0070043630004018291054</span>
+                <button type="button" class="btn-outline-gold btn-copy-data" data-copy="0070043630004018291054" style="padding: 0.25rem 0.65rem; font-size: 0.7rem;">Copiar</button>
+              </div>
+            </div>
+          </div>
+
+          <p style="font-family: var(--font-script); font-size: 2rem; color: var(--color-antique-rose-dark);">
+            ¡Muchas gracias por estar en nuestras vidas!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECCIÓN 11: LIBRO DE FIRMAS Y DESEOS (GUESTBOOK)
+         =================================================================== -->
+    <section class="guestbook-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-icon-badge">
+            <img src="assets/icons/icon-guestbook.svg" alt="Libro de Firmas" />
+          </div>
+          <span class="section-eyebrow">Palabras del Corazón</span>
+          <h2 class="section-title">Libro de Firmas y Deseos</h2>
+          <p class="section-subtitle">Dejanos tu saludo y felicitaciones para guardar para siempre</p>
+          <div class="ornament-divider">
+            <div class="ornament-line"></div>
+            <svg class="ornament-icon" viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="ornament-line"></div>
+          </div>
+        </div>
+
+        <div class="guestbook-container">
+          <div class="guestbook-form-card">
+            <form id="guestbook-form">
+              <div class="form-group">
+                <label for="guestbook-name" class="form-label">Tu Nombre o Familia</label>
+                <input type="text" id="guestbook-name" class="form-control" placeholder="Ej: Tíos Daniel y Laura" required />
+              </div>
+
+              <div class="form-group">
+                <label for="guestbook-message" class="form-label">Tus Deseos para Juliana & Marcos</label>
+                <textarea id="guestbook-message" class="form-control" placeholder="Escribí aquí tu mensaje para los novios..." required></textarea>
+              </div>
+
+              <div style="text-align: right;">
+                <button type="submit" class="btn-gold" style="font-size: 0.78rem;">Publicar en el Libro</button>
+              </div>
+
+              <div id="guestbook-alert" class="rsvp-alert"></div>
+            </form>
+          </div>
+
+          <!-- Muro de Mensajes de Cariño -->
+          <div id="guestbook-messages-grid" class="guestbook-messages-grid">
+            <!-- Renderizado por js/guestbook.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================================================================
+       BARRA RÁPIDA INFERIOR PARA CELULARES (MOBILE QUICK BAR)
+       =================================================================== -->
+  <nav class="mobile-quick-bar" aria-label="Navegación móvil rápida">
+    <div class="mobile-quick-inner">
+      <a href="#inicio" class="mobile-quick-btn">
+        <img src="assets/icons/icon-rings.svg" alt="Inicio" />
+        <span>Inicio</span>
+      </a>
+      <a href="#cuenta-regresiva" class="mobile-quick-btn">
+        <img src="assets/icons/icon-calendar.svg" alt="Fecha" />
+        <span>Fecha</span>
+      </a>
+      <a href="#lugar" class="mobile-quick-btn">
+        <img src="assets/icons/icon-location.svg" alt="Lugar" />
+        <span>Salón</span>
+      </a>
+      <a href="#dresscode" class="mobile-quick-btn">
+        <img src="assets/icons/icon-dress-code.svg" alt="Vestimenta" />
+        <span>Ropa</span>
+      </a>
+      <a href="#asistencia" class="mobile-quick-btn" style="color: var(--color-antique-rose-dark); font-weight: 700;">
+        <img src="assets/icons/icon-envelope-letter.svg" alt="Confirmar" />
+        <span>Confirmar</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===================================================================
+       PIE DE PÁGINA (FOOTER)
+       =================================================================== -->
+  <footer class="wedding-footer">
+    <div class="container">
+      <img src="assets/icons/monogram-gold.svg" alt="Monograma J & M" class="footer-monogram" />
+      <h3 class="footer-names">Juliana & Marcos</h3>
+      <p class="footer-date">06 · 11 · 2027 · Avellaneda, Buenos Aires</p>
+
+      <p class="footer-closing">
+        "Porque las historias más lindas se celebran rodeados de quienes queremos."
+      </p>
+
+      <div style="margin: 2rem 0;">
+        <button type="button" class="btn-outline-gold" style="font-size: 0.72rem; padding: 0.5rem 1.2rem;" onclick="window.reopenEnvelope()">
+          Ver sobre de invitación nuevamente
+        </button>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2027 J & M — Experiencia Digital de Casamiento</span>
+        <a href="#admin" class="footer-admin-link open-admin-trigger">
+          🔒 Panel Privado de los Novios
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       REPRODUCTOR DE MÚSICA FLOTANTE — ALL OF ME (JOHN LEGEND)
+       Archivo local: assets/music.mp3 (4:14 min)
+       =================================================================== -->
+  <div id="music-player-widget" class="music-player-widget">
+    <button id="music-toggle-btn" class="music-toggle-btn" aria-label="Reproducir o pausar All of Me">
+      <span id="music-toggle-icon">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+          <polygon points="7 4 19 12 7 20 7 4"/>
+        </svg>
+      </span>
+    </button>
+
+    <div class="music-info">
+      <span id="music-title-text" class="music-title-text">All of Me</span>
+      <span id="music-artist-text" class="music-artist-text">John Legend</span>
+    </div>
+
+    <div class="music-equalizer">
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+      <div class="eq-bar"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL: PANEL PRIVADO DE ADMINISTRACIÓN
+       =================================================================== -->
+  <div id="admin-modal" class="admin-modal" role="dialog" aria-modal="true" aria-label="Panel de Administración Privado">
+    <div class="admin-panel-card">
+      <div class="admin-header">
+        <div class="admin-title">
+          <span>🔒</span> Panel Privado — Juliana & Marcos
+        </div>
+        <button type="button" id="admin-close-btn" class="admin-close-btn" aria-label="Cerrar panel">✕</button>
+      </div>
+
+      <div class="admin-body">
+        <!-- Pantalla de Login -->
+        <div id="admin-login-screen" class="admin-login-screen">
+          <h3 style="font-family: var(--font-serif-display); margin-bottom: 0.5rem;">Acceso para los Novios</h3>
+          <p style="font-size: 0.95rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+            Ingresá tu PIN de seguridad para gestionar invitados y respuestas:
+          </p>
+          <input type="password" id="admin-pin-input" class="form-control" maxlength="6" placeholder="••••" autofocus />
+          <button type="button" id="admin-btn-login" class="btn-gold" style="width: 100%;">Ingresar al Panel</button>
+          <div id="admin-login-error" class="rsvp-alert error" style="margin-top: 1rem;"></div>
+        </div>
+
+        <!-- Pantalla de Dashboard con Métricas y Tabla -->
+        <div id="admin-dashboard-screen" style="display: none;">
+          <!-- Tarjetas de Métricas -->
+          <div class="admin-stats-grid">
+            <div class="admin-stat-card">
+              <div id="admin-stat-confirmed" class="admin-stat-num">0</div>
+              <div class="admin-stat-label">Confirmados (Respuestas)</div>
+            </div>
+            <div class="admin-stat-card">
+              <div id="admin-stat-total-people" class="admin-stat-num">0</div>
+              <div class="admin-stat-label">Total Personas (Salón)</div>
+            </div>
+            <div class="admin-stat-card">
+              <div id="admin-stat-declined" class="admin-stat-num">0</div>
+              <div class="admin-stat-label">No Asistirán</div>
+            </div>
+            <div class="admin-stat-card">
+              <div id="admin-stat-dietary" class="admin-stat-num" style="font-size: 1.2rem; font-weight: 600; padding-top: 0.6rem;">Ninguna</div>
+              <div class="admin-stat-label">Menús Especiales</div>
+            </div>
+          </div>
+
+          <!-- Controles y Búsqueda -->
+          <div class="admin-controls-bar">
+            <input type="text" id="admin-search-guests" class="form-control admin-search-input" placeholder="Buscar por nombre, menú..." />
+            <button type="button" id="admin-btn-export-csv" class="btn-gold" style="font-size: 0.78rem;">
+              📥 Exportar Lista para el Salón (CSV)
+            </button>
+          </div>
+
+          <!-- Tabla de Invitados -->
+          <div class="admin-table-wrapper">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Invitado / Familia</th>
+                  <th>Asistencia</th>
+                  <th>Personas</th>
+                  <th>Menú Especial</th>
+                  <th>Canción</th>
+                  <th>Fecha</th>
+                </tr>
+              </thead>
+              <tbody id="admin-guest-table-body">
+                <!-- Poblado dinámicamente -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Generador de Códigos de Invitación -->
+          <div style="margin-top: 2rem;">
+            <h4 class="admin-section-subheading">Crear Enlace Personalizado de Invitación</h4>
+            <div class="admin-code-generator-form">
+              <input type="text" id="admin-code-name" class="form-control" style="flex: 2; min-width: 200px;" placeholder="Nombre de los invitados (Ej: Familia López)" />
+              <input type="number" id="admin-code-max" class="form-control" style="flex: 1; min-width: 120px;" min="1" max="10" value="2" placeholder="Cupos máximos" />
+              <button type="button" id="admin-btn-generate-code" class="btn-gold" style="font-size: 0.78rem;">Generar Enlace</button>
+            </div>
+            <div id="admin-code-result"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       SCRIPTS MODULARES EN JAVASCRIPT
+       =================================================================== -->
+  <script src="js/config.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/envelope.js"></script>
+  <script src="js/scratch.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/venue-carousel.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/rsvp.js"></script>
+  <script src="js/guestbook.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

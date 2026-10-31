@@ -1,0 +1,583 @@
+/* ===================================================================
+   J & M — THE WEDDING EXPERIENCE
+   Opening Experience — The Black & Gold Luxury Envelope (Nocturne Edition)
+   =================================================================== */
+
+.envelope-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: 
+    radial-gradient(circle at 50% 35%, #25143A 0%, #12091E 50%, #06040A 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.1s ease;
+  perspective: 1400px;
+}
+
+.envelope-overlay.opened {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Resplandor áureo celestial detrás del sobre */
+.envelope-glow {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(229, 193, 88, 0.22) 0%, rgba(61, 28, 87, 0.3) 45%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: pulseGlowNight 5s ease-in-out infinite alternate;
+}
+
+@keyframes pulseGlowNight {
+  0% { transform: scale(0.92); opacity: 0.65; }
+  100% { transform: scale(1.18); opacity: 1; }
+}
+
+/* ===================================================================
+   ORNAMENTACIÓN BARROCA Y TEXTURAS DEL FONDO DE APERTURA
+   =================================================================== */
+.envelope-corner-ornament {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.65;
+  transition: var(--transition-smooth);
+}
+
+.envelope-corner-ornament img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: drop-shadow(0 0 12px rgba(229, 193, 88, 0.45));
+}
+
+.envelope-corner-ornament.top-left {
+  top: 24px;
+  left: 24px;
+}
+
+.envelope-corner-ornament.top-right {
+  top: 24px;
+  right: 24px;
+  transform: scaleX(-1);
+}
+
+.envelope-corner-ornament.bottom-left {
+  bottom: 24px;
+  left: 24px;
+  transform: scaleY(-1);
+}
+
+.envelope-corner-ornament.bottom-right {
+  bottom: 24px;
+  right: 24px;
+  transform: scale(-1);
+}
+
+/* Mandala Celestial Guilloché detrás del Sobre */
+.envelope-mandala-bg {
+  position: absolute;
+  width: 740px;
+  height: 740px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.45;
+  animation: rotateMandalaSlow 140s linear infinite;
+  filter: drop-shadow(0 0 25px rgba(229, 193, 88, 0.25));
+}
+
+@keyframes rotateMandalaSlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Emblema y Nombres Superiores (Papelería de Alta Costura) */
+.envelope-brand-header {
+  text-align: center;
+  margin-bottom: 2.2rem;
+  z-index: 10;
+  animation: fadeInDown 1.2s ease forwards;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.envelope-crest-icon {
+  width: 140px;
+  height: 28px;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 0 10px rgba(229, 193, 88, 0.55));
+}
+
+.envelope-brand-names {
+  font-family: var(--font-display-bodoni);
+  font-size: 2.6rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #FFFDF9;
+  text-shadow: 0 0 22px rgba(229, 193, 88, 0.5), 0 4px 14px rgba(0, 0, 0, 0.95);
+  margin-bottom: 0.3rem;
+}
+
+.envelope-brand-date {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  display: block;
+  text-shadow: 0 0 10px rgba(229, 193, 88, 0.5);
+}
+
+/* ===================================================================
+   ESTRUCTURA 3D DEL SOBRE NEGRO DE ALTA GAMA CON RELIEVE Y DAMASCO
+   =================================================================== */
+.envelope-container {
+  position: relative;
+  width: 380px;
+  height: 260px;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+  animation: envelopeFloatNight 5s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes envelopeFloatNight {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(-0.5deg); }
+}
+
+.envelope-container:hover {
+  transform: translateY(-8px) scale(1.03);
+}
+
+/* Cuerpo del sobre negro con relieve textil y ribetes dorados */
+.envelope-body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #12091A;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(229, 193, 88, 0.05) 1px, transparent 1px),
+    linear-gradient(145deg, #1C1224 0%, #0D0713 100%);
+  background-size: 14px 14px, 100% 100%;
+  border-radius: 10px;
+  box-shadow: 
+    0 30px 60px rgba(0, 0, 0, 0.95),
+    0 0 30px rgba(229, 193, 88, 0.2),
+    inset 0 0 0 1px rgba(229, 193, 88, 0.5);
+  overflow: visible;
+}
+
+/* Filete dorado estampado en caliente */
+.envelope-body::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(229, 193, 88, 0.35);
+  border-radius: 8px;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Solapa Superior Móvil (Flap) */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  border-left: 190px solid transparent;
+  border-right: 190px solid transparent;
+  border-top: 155px solid #160D1D;
+  transform-origin: top center;
+  transform: rotateX(0deg);
+  transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.8));
+}
+
+.envelope-flap::after {
+  content: '';
+  position: absolute;
+  top: -155px;
+  left: -190px;
+  width: 380px;
+  height: 155px;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(180deg, #241630 0%, #12091A 100%);
+  border-top: 1.5px solid rgba(229, 193, 88, 0.5);
+}
+
+/* Solapas Laterales e Inferior (Bolsillo Negro Profundo) */
+.envelope-pocket {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+}
+
+/* Solapa Izquierda */
+.envelope-pocket-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 130px solid transparent;
+  border-bottom: 130px solid transparent;
+  border-left: 195px solid #140C1A;
+  filter: drop-shadow(3px 0 5px rgba(0, 0, 0, 0.5));
+}
+
+/* Solapa Derecha */
+.envelope-pocket-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-top: 130px solid transparent;
+  border-bottom: 130px solid transparent;
+  border-right: 195px solid #140C1A;
+  filter: drop-shadow(-3px 0 5px rgba(0, 0, 0, 0.5));
+}
+
+/* Solapa Inferior */
+.envelope-pocket-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 190px solid transparent;
+  border-right: 190px solid transparent;
+  border-bottom: 145px solid #0E0713;
+  filter: drop-shadow(0 -4px 6px rgba(0, 0, 0, 0.6));
+}
+
+/* ===================================================================
+   SELLO DE LACRE CIRUELA IMPERIAL CON RELIEVE DE ORO (3D WAX SEAL)
+   =================================================================== */
+.wax-seal {
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 104px;
+  height: 104px;
+  z-index: 20;
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.9)), drop-shadow(0 0 15px rgba(229, 193, 88, 0.35));
+  animation: waxSealBreathe 3.4s ease-in-out infinite alternate;
+}
+
+@keyframes waxSealBreathe {
+  0% {
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 12px rgba(229, 193, 88, 0.25));
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.95)) drop-shadow(0 0 25px rgba(229, 193, 88, 0.65));
+    transform: translate(-50%, -50%) scale(1.035);
+  }
+}
+
+.wax-seal:hover {
+  transform: translate(-50%, -50%) scale(1.08) !important;
+  filter: drop-shadow(0 16px 35px rgba(0, 0, 0, 0.98)) drop-shadow(0 0 30px rgba(229, 193, 88, 0.8)) !important;
+}
+
+.wax-seal img, 
+.wax-seal svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.wax-seal.breaking {
+  animation: waxBreakNight 0.65s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes waxBreakNight {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.35) rotate(10deg); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1.7) rotate(20deg); opacity: 0; filter: blur(6px); }
+}
+
+/* ===================================================================
+   TARJETA ACRÍLICA DE CRISTAL OSCURO & ESTAMPADO DORADO
+   (Gold Foil Acrylic Wedding Invitation)
+   =================================================================== */
+.invitation-card-preview {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  width: 350px;
+  height: 240px;
+  background: linear-gradient(135deg, rgba(38, 22, 54, 0.92) 0%, rgba(14, 9, 21, 0.96) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid var(--color-gold);
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(229, 193, 88, 0.3), 0 20px 45px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem;
+  text-align: center;
+  z-index: 6;
+  transform: translateY(0);
+  transition: transform 1.1s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 1.1s ease;
+}
+
+.card-preview-inner {
+  border: 1px dashed rgba(229, 193, 88, 0.35);
+  border-radius: 6px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.card-preview-monogram {
+  width: 65px;
+  height: 65px;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 10px rgba(229, 193, 88, 0.5));
+}
+
+.card-preview-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.18em;
+  color: #FFFDF9;
+  text-shadow: 0 0 12px rgba(229, 193, 88, 0.4);
+  margin-bottom: 0.2rem;
+}
+
+.card-preview-sub {
+  font-family: var(--font-script);
+  font-size: 1.5rem;
+  color: var(--color-gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.card-preview-date {
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  color: var(--color-gold);
+}
+
+/* ===================================================================
+   ANIMACIÓN DE APERTURA CINEMATOGRÁFICA
+   =================================================================== */
+.envelope-container.animating .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 5;
+  transition-delay: 0.35s;
+}
+
+.envelope-container.animating .invitation-card-preview {
+  transform: translateY(-170px);
+  box-shadow: 0 30px 65px rgba(0, 0, 0, 0.95), 0 0 35px rgba(229, 193, 88, 0.45);
+  transition-delay: 0.85s;
+}
+
+/* Chispas de oro líquido al romper el lacre */
+.sparkle-burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  box-shadow: 0 0 14px var(--color-gold), 0 0 4px #FFFFFF;
+  pointer-events: none;
+  z-index: 25;
+}
+
+/* ===================================================================
+   RESPONSIVE ENVELOPE (MOBILE FIRST)
+   =================================================================== */
+@media (max-width: 480px) {
+  .envelope-container {
+    width: 310px;
+    height: 220px;
+  }
+
+  .envelope-flap {
+    border-left-width: 155px;
+    border-right-width: 155px;
+    border-top-width: 125px;
+  }
+
+  .envelope-flap::after {
+    top: -125px;
+    left: -155px;
+    width: 310px;
+    height: 125px;
+  }
+
+  .envelope-pocket-left {
+    border-top-width: 110px;
+    border-bottom-width: 110px;
+    border-left-width: 160px;
+  }
+
+  .envelope-pocket-right {
+    border-top-width: 110px;
+    border-bottom-width: 110px;
+    border-right-width: 160px;
+  }
+
+  .envelope-pocket-bottom {
+    border-left-width: 155px;
+    border-right-width: 155px;
+    border-bottom-width: 120px;
+  }
+
+  .invitation-card-preview {
+    width: 280px;
+    height: 200px;
+  }
+
+  .wax-seal {
+    width: 86px;
+    height: 86px;
+    top: 110px;
+  }
+
+  .envelope-prompt-top {
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+}
+
+/* ===================================================================
+   SOBRE DE LUJO EN MODO DÍA (08:00 a 20:00 hs — HORARIO ARGENTINA)
+   Papel Perlado Marfil, Lacre Borgoña Rosa & Foil Dorado Caliente
+   =================================================================== */
+[data-theme="day"] .envelope-overlay {
+  background: 
+    radial-gradient(circle at 50% 35%, #FFFDF9 0%, #F6ECE0 50%, #E8DCBE 100%);
+}
+
+[data-theme="day"] .envelope-glow {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.28) 0%, rgba(232, 180, 184, 0.25) 50%, transparent 70%);
+}
+
+[data-theme="day"] .envelope-brand-names {
+  color: #2D2326;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 0 2px 6px rgba(74, 59, 62, 0.15);
+}
+
+[data-theme="day"] .envelope-brand-date {
+  color: #8C6517;
+  text-shadow: none;
+}
+
+[data-theme="day"] .envelope-mandala-bg {
+  opacity: 0.35;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.35));
+}
+
+[data-theme="day"] .envelope-corner-ornament img {
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+}
+
+[data-theme="day"] .envelope-body {
+  background-color: #FAF4EA;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(140, 101, 23, 0.04) 1px, transparent 1px),
+    linear-gradient(145deg, #FFFFFF 0%, #FAF4EA 100%);
+  background-size: 14px 14px, 100% 100%;
+  box-shadow: 
+    0 25px 60px rgba(74, 59, 62, 0.18),
+    0 0 25px rgba(212, 175, 55, 0.25),
+    inset 0 0 0 1px rgba(212, 175, 55, 0.6);
+}
+
+[data-theme="day"] .envelope-body::before {
+  border-color: rgba(212, 175, 55, 0.45);
+}
+
+[data-theme="day"] .envelope-flap {
+  border-top-color: #F5EDE0;
+  filter: drop-shadow(0 6px 12px rgba(74, 59, 62, 0.15));
+}
+
+[data-theme="day"] .envelope-flap::after {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5EDE0 100%);
+  border-top-color: rgba(212, 175, 55, 0.55);
+}
+
+[data-theme="day"] .envelope-pocket-left {
+  border-left-color: #EFE4D3;
+  filter: drop-shadow(2px 0 4px rgba(74, 59, 62, 0.08));
+}
+
+[data-theme="day"] .envelope-pocket-right {
+  border-right-color: #EFE4D3;
+  filter: drop-shadow(-2px 0 4px rgba(74, 59, 62, 0.08));
+}
+
+[data-theme="day"] .envelope-pocket-bottom {
+  border-bottom-color: #E5D5BF;
+  filter: drop-shadow(0 -2px 6px rgba(74, 59, 62, 0.1));
+}
+
+[data-theme="day"] .wax-seal {
+  background: radial-gradient(circle at 35% 35%, #A73950 0%, #832036 60%, #5C1223 100%);
+  box-shadow: 
+    0 10px 25px rgba(92, 18, 35, 0.45),
+    0 0 20px rgba(212, 175, 55, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="day"] .invitation-card-preview {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 245, 237, 0.95) 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  box-shadow: 0 15px 45px rgba(74, 59, 62, 0.2), 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+[data-theme="day"] .card-preview-inner {
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+[data-theme="day"] .card-preview-title {
+  color: #2D2326;
+  text-shadow: none;
+}
+
+[data-theme="day"] .card-preview-sub {
+  color: #8C6517;
+}
+
+[data-theme="day"] .card-preview-date {
+  color: #635356;
+}
+

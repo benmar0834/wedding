@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="favGoldNight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9E6" />
+      <stop offset="35%" stop-color="#E5C158" />
+      <stop offset="70%" stop-color="#AA7E24" />
+      <stop offset="100%" stop-color="#FBF0B9" />
+    </linearGradient>
+    <radialGradient id="favBgNight" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1E1428"/>
+      <stop offset="100%" stop-color="#0A070E"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#favBgNight)"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="url(#favGoldNight)" stroke-width="1.5" opacity="0.8"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="url(#favGoldNight)" stroke-width="0.8" stroke-dasharray="2, 2" opacity="0.6"/>
+  <!-- J & M simplified silhouette in gold -->
+  <g fill="url(#favGoldNight)" transform="translate(32, 33) scale(0.1) translate(-300, -300)">
+    <!-- J -->
+    <path d="M 185 165 C 205 152, 240 150, 280 155 C 260 168, 230 170, 205 178 Z"/>
+    <path d="M 235 160 C 245 155, 275 160, 282 165 C 280 180, 258 225, 252 285 C 246 370, 242 395, 230 420 C 214 450, 180 464, 150 452 C 124 440, 118 410, 136 394 C 152 380, 174 394, 170 412 C 168 422, 158 428, 150 424 C 162 436, 186 436, 202 418 C 218 398, 224 365, 228 298 C 234 238, 242 190, 252 162 Z"/>
+    <!-- & -->
+    <path d="M 302 260 C 290 242, 288 224, 298 212 C 308 200, 322 202, 325 218 C 328 236, 304 260, 286 284 C 270 308, 268 332, 280 348 C 292 362, 314 360, 332 344 C 340 336, 348 324, 352 312 L 358 316 C 350 336, 338 352, 324 362 C 302 374, 276 370, 264 350 C 252 330, 254 302, 272 276 C 288 254, 312 228, 308 216 C 306 208, 300 206, 296 210 C 288 220, 288 236, 294 252 Z"/>
+    <!-- M -->
+    <path d="M 306 395 C 318 385, 330 350, 336 302 C 342 254, 346 200, 342 170 C 338 155, 330 152, 322 155 L 322 148 C 336 142, 354 142, 362 152 C 368 158, 366 175, 362 202 L 394 302 C 396 308, 400 308, 404 302 L 444 190 C 448 175, 448 160, 444 152 C 436 148, 428 152, 422 155 L 422 148 C 436 142, 458 142, 468 152 C 472 160, 472 175, 468 200 C 460 248, 452 320, 448 362 C 446 384, 456 392, 468 388 L 468 395 C 456 400, 434 400, 428 384 C 424 368, 428 332, 432 290 L 408 356 C 404 365, 396 365, 392 356 L 360 258 C 356 300, 350 355, 344 384 C 338 398, 325 400, 306 395 Z"/>
+  </g>
+</svg>

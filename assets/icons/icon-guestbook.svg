@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nightGoldBook" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFDF0" />
+      <stop offset="25%" stop-color="#F2D785" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="75%" stop-color="#FFF1BE" />
+      <stop offset="100%" stop-color="#805B16" />
+    </linearGradient>
+    <radialGradient id="bookNightBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#241533" />
+      <stop offset="100%" stop-color="#0E0814" />
+    </radialGradient>
+    <filter id="nightBookGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#000000" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#E5C158" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <g filter="url(#nightBookGlow)">
+    <circle cx="50" cy="50" r="44" fill="url(#bookNightBg)" stroke="url(#nightGoldBook)" stroke-width="1.2"/>
+    <circle cx="50" cy="50" r="41" fill="none" stroke="url(#nightGoldBook)" stroke-width="0.6" stroke-dasharray="2, 3" opacity="0.6"/>
+
+    <!-- Open Book Left Page -->
+    <path d="M 50 38 C 42 34, 30 34, 24 38 L 24 68 C 30 64, 42 64, 50 68 Z" 
+          fill="#140C1D" stroke="url(#nightGoldBook)" stroke-width="2"/>
+    <line x1="29" y1="46" x2="45" y2="46" stroke="url(#nightGoldBook)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="29" y1="53" x2="45" y2="53" stroke="url(#nightGoldBook)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="29" y1="60" x2="40" y2="60" stroke="url(#nightGoldBook)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+
+    <!-- Open Book Right Page -->
+    <path d="M 50 38 C 58 34, 70 34, 76 38 L 76 68 C 70 64, 58 64, 50 68 Z" 
+          fill="#140C1D" stroke="url(#nightGoldBook)" stroke-width="2"/>
+    <line x1="55" y1="46" x2="71" y2="46" stroke="url(#nightGoldBook)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="55" y1="53" x2="71" y2="53" stroke="url(#nightGoldBook)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+    <line x1="55" y1="60" x2="66" y2="60" stroke="url(#nightGoldBook)" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+
+    <!-- Spine -->
+    <line x1="50" y1="38" x2="50" y2="68" stroke="url(#nightGoldBook)" stroke-width="2.5"/>
+
+    <!-- Quill Feather -->
+    <path d="M 68 20 C 68 20, 77 27, 65 38 C 60 43, 53 51, 51 55 L 50 58 L 51 55 C 53 51, 58 46, 61 43 C 71 33, 78 25, 68 20 Z" 
+          fill="url(#nightGoldBook)"/>
+  </g>
+</svg>

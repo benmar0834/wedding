@@ -1,0 +1,166 @@
+/* ===================================================================
+   J & M — THE WEDDING EXPERIENCE
+   Our Story Timeline (Nuestra Historia — Nocturne Luxury Edition)
+   =================================================================== */
+
+.story-section {
+  padding: 7rem 1.5rem;
+  background: linear-gradient(180deg, rgba(8, 5, 12, 0.8) 0%, rgba(20, 11, 30, 0.9) 100%);
+  position: relative;
+}
+
+.timeline-container {
+  max-width: 920px;
+  margin: 0 auto;
+  position: relative;
+  padding: 2.5rem 0;
+}
+
+/* Línea central dorada de constelación */
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, transparent 0%, var(--color-gold) 15%, var(--color-gold-warm) 85%, transparent 100%);
+  box-shadow: 0 0 10px rgba(229, 193, 88, 0.5);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4.5rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(35px);
+  transition: all 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.timeline-content {
+  width: calc(50% - 45px);
+  background: var(--gradient-night-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid var(--color-border-gold);
+  border-radius: 18px;
+  padding: 2.2rem;
+  box-shadow: var(--shadow-card-night);
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.timeline-content:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 30px rgba(229, 193, 88, 0.3);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  text-align: left;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  text-align: right;
+}
+
+/* Nodo central con estrella dorada brillante */
+.timeline-node {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gradient-gold-foil);
+  border: 3px solid #160D20;
+  box-shadow: 0 0 0 2px var(--color-gold), 0 0 20px rgba(229, 193, 88, 0.6);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-node::after {
+  content: '✦';
+  font-size: 1.1rem;
+  color: #120A1A;
+}
+
+/* Imagen dentro de cada hito */
+.timeline-image-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 1.4rem;
+  aspect-ratio: 16 / 10;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(229, 193, 88, 0.3);
+}
+
+.timeline-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.timeline-content:hover .timeline-image-wrapper img {
+  transform: scale(1.06);
+}
+
+.timeline-date {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.timeline-title {
+  font-size: 1.5rem;
+  color: #FFFDF9;
+  margin-bottom: 0.7rem;
+}
+
+.timeline-desc {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--color-text-main);
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+  .timeline-container::before {
+    left: 24px;
+  }
+
+  .timeline-item {
+    flex-direction: row !important;
+    padding-left: 58px;
+    margin-bottom: 3.2rem;
+  }
+
+  .timeline-content {
+    width: 100%;
+    text-align: left !important;
+  }
+
+  .timeline-node {
+    left: 24px;
+  }
+}
