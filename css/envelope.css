@@ -47,11 +47,11 @@
    =================================================================== */
 .envelope-corner-ornament {
   position: absolute;
-  width: 140px;
-  height: 140px;
+  width: 95px;
+  height: 95px;
   pointer-events: none;
   z-index: 2;
-  opacity: 0.65;
+  opacity: 0.45;
   transition: var(--transition-smooth);
 }
 
@@ -59,42 +59,44 @@
   width: 100%;
   height: 100%;
   display: block;
-  filter: drop-shadow(0 0 12px rgba(229, 193, 88, 0.45));
+  filter: drop-shadow(0 0 10px rgba(229, 193, 88, 0.4));
 }
 
 .envelope-corner-ornament.top-left {
-  top: 24px;
-  left: 24px;
+  top: 18px;
+  left: 18px;
 }
 
 .envelope-corner-ornament.top-right {
-  top: 24px;
-  right: 24px;
+  top: 18px;
+  right: 18px;
   transform: scaleX(-1);
 }
 
 .envelope-corner-ornament.bottom-left {
-  bottom: 24px;
-  left: 24px;
+  bottom: 18px;
+  left: 18px;
   transform: scaleY(-1);
 }
 
 .envelope-corner-ornament.bottom-right {
-  bottom: 24px;
-  right: 24px;
+  bottom: 18px;
+  right: 18px;
   transform: scale(-1);
 }
 
 /* Mandala Celestial Guilloché detrás del Sobre */
 .envelope-mandala-bg {
   position: absolute;
-  width: 740px;
-  height: 740px;
+  width: 620px;
+  height: 620px;
+  max-width: 95vw;
+  max-height: 95vw;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.45;
+  opacity: 0.38;
   animation: rotateMandalaSlow 140s linear infinite;
-  filter: drop-shadow(0 0 25px rgba(229, 193, 88, 0.25));
+  filter: drop-shadow(0 0 25px rgba(229, 193, 88, 0.22));
 }
 
 @keyframes rotateMandalaSlow {
@@ -105,38 +107,45 @@
 /* Emblema y Nombres Superiores (Papelería de Alta Costura) */
 .envelope-brand-header {
   text-align: center;
-  margin-bottom: 2.2rem;
+  margin-bottom: 2rem;
   z-index: 10;
   animation: fadeInDown 1.2s ease forwards;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 480px;
+  padding: 0 1.2rem;
+  box-sizing: border-box;
 }
 
 .envelope-crest-icon {
-  width: 140px;
-  height: 28px;
-  margin-bottom: 0.75rem;
+  width: 120px;
+  height: 24px;
+  margin-bottom: 0.65rem;
   filter: drop-shadow(0 0 10px rgba(229, 193, 88, 0.55));
 }
 
 .envelope-brand-names {
   font-family: var(--font-display-bodoni);
-  font-size: 2.6rem;
+  font-size: 2.3rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #FFFDF9;
   text-shadow: 0 0 22px rgba(229, 193, 88, 0.5), 0 4px 14px rgba(0, 0, 0, 0.95);
   margin-bottom: 0.3rem;
+  line-height: 1.2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .envelope-brand-date {
   font-family: var(--font-sans);
   font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-gold);
   display: block;
@@ -422,57 +431,144 @@
 /* ===================================================================
    RESPONSIVE ENVELOPE (MOBILE FIRST)
    =================================================================== */
+@media (max-width: 768px) {
+  .envelope-corner-ornament {
+    width: 60px;
+    height: 60px;
+    top: 12px;
+    left: 12px;
+    opacity: 0.35;
+  }
+
+  .envelope-corner-ornament.top-right {
+    top: 12px;
+    right: 12px;
+  }
+
+  .envelope-corner-ornament.bottom-left {
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .envelope-corner-ornament.bottom-right {
+    bottom: 12px;
+    right: 12px;
+  }
+
+  .envelope-mandala-bg {
+    width: 420px;
+    height: 420px;
+    opacity: 0.28;
+  }
+
+  .envelope-brand-header {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+    max-width: 90vw;
+  }
+
+  .envelope-brand-names {
+    font-size: 1.95rem;
+    letter-spacing: 0.1em;
+  }
+
+  .envelope-crest-icon {
+    width: 95px;
+    height: 20px;
+  }
+}
+
 @media (max-width: 480px) {
-  .envelope-container {
+  .envelope-corner-ornament {
+    width: 42px;
+    height: 42px;
+    top: 8px;
+    left: 8px;
+    opacity: 0.25;
+  }
+
+  .envelope-corner-ornament.top-right {
+    top: 8px;
+    right: 8px;
+  }
+
+  .envelope-corner-ornament.bottom-left {
+    bottom: 8px;
+    left: 8px;
+  }
+
+  .envelope-corner-ornament.bottom-right {
+    bottom: 8px;
+    right: 8px;
+  }
+
+  .envelope-mandala-bg {
     width: 310px;
-    height: 220px;
+    height: 310px;
+    opacity: 0.22;
+  }
+
+  .envelope-brand-header {
+    margin-bottom: 1.2rem;
+    padding: 0 0.8rem;
+    max-width: 95vw;
+  }
+
+  .envelope-brand-names {
+    font-size: 1.55rem;
+    letter-spacing: 0.08em;
+  }
+
+  .envelope-brand-date {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+  }
+
+  .envelope-container {
+    width: 295px;
+    height: 210px;
   }
 
   .envelope-flap {
-    border-left-width: 155px;
-    border-right-width: 155px;
-    border-top-width: 125px;
+    border-left-width: 147.5px;
+    border-right-width: 147.5px;
+    border-top-width: 120px;
   }
 
   .envelope-flap::after {
-    top: -125px;
-    left: -155px;
-    width: 310px;
-    height: 125px;
+    top: -120px;
+    left: -147.5px;
+    width: 295px;
+    height: 120px;
   }
 
   .envelope-pocket-left {
-    border-top-width: 110px;
-    border-bottom-width: 110px;
-    border-left-width: 160px;
+    border-top-width: 105px;
+    border-bottom-width: 105px;
+    border-left-width: 152px;
   }
 
   .envelope-pocket-right {
-    border-top-width: 110px;
-    border-bottom-width: 110px;
-    border-right-width: 160px;
+    border-top-width: 105px;
+    border-bottom-width: 105px;
+    border-right-width: 152px;
   }
 
   .envelope-pocket-bottom {
-    border-left-width: 155px;
-    border-right-width: 155px;
-    border-bottom-width: 120px;
+    border-left-width: 147.5px;
+    border-right-width: 147.5px;
+    border-bottom-width: 115px;
   }
 
   .invitation-card-preview {
-    width: 280px;
-    height: 200px;
+    width: 268px;
+    height: 190px;
   }
 
   .wax-seal {
-    width: 86px;
-    height: 86px;
-    top: 110px;
-  }
-
-  .envelope-prompt-top {
-    font-size: 2rem;
-    padding: 0 1rem;
+    width: 82px;
+    height: 82px;
+    top: 105px;
   }
 }
 
@@ -490,22 +586,22 @@
 }
 
 [data-theme="day"] .envelope-brand-names {
-  color: #2D2326;
-  text-shadow: 0 0 15px rgba(212, 175, 55, 0.4), 0 2px 6px rgba(74, 59, 62, 0.15);
+  color: #1C1315;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.35), 0 2px 6px rgba(74, 59, 62, 0.15);
 }
 
 [data-theme="day"] .envelope-brand-date {
-  color: #8C6517;
+  color: #7A5210;
   text-shadow: none;
 }
 
 [data-theme="day"] .envelope-mandala-bg {
-  opacity: 0.35;
-  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.35));
+  opacity: 0.28;
+  filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.3));
 }
 
 [data-theme="day"] .envelope-corner-ornament img {
-  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.35));
 }
 
 [data-theme="day"] .envelope-body {
@@ -569,15 +665,15 @@
 }
 
 [data-theme="day"] .card-preview-title {
-  color: #2D2326;
+  color: #1C1315;
   text-shadow: none;
 }
 
 [data-theme="day"] .card-preview-sub {
-  color: #8C6517;
+  color: #7A5210;
 }
 
 [data-theme="day"] .card-preview-date {
-  color: #635356;
+  color: #524044;
 }
 

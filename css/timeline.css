@@ -158,9 +158,101 @@
   .timeline-content {
     width: 100%;
     text-align: left !important;
+    padding: 1.8rem 1.4rem;
   }
 
   .timeline-node {
     left: 24px;
   }
+}
+
+@media (max-width: 500px) {
+  .story-section {
+    padding: 4.5rem 1rem;
+  }
+
+  .timeline-container::before {
+    left: 16px;
+  }
+
+  .timeline-item {
+    padding-left: 44px;
+    margin-bottom: 2.5rem;
+  }
+
+  .timeline-node {
+    left: 16px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .timeline-node::after {
+    font-size: 0.85rem;
+  }
+
+  .timeline-content {
+    padding: 1.4rem 1rem;
+    border-radius: 14px;
+  }
+
+  .timeline-date {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+  }
+
+  .timeline-title {
+    font-size: 1.22rem;
+    word-break: break-word;
+  }
+
+  .timeline-desc {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    word-break: break-word;
+  }
+}
+
+/* ===================================================================
+   MODO DÍA — HISTORIA DE AMOR / TIMELINE
+   =================================================================== */
+[data-theme="day"] .story-section {
+  background: linear-gradient(180deg, #F8F4EC 0%, #F1EADC 100%);
+}
+
+[data-theme="day"] .timeline-container::before {
+  background: linear-gradient(180deg, transparent 0%, #8C6517 15%, #6E4E10 85%, transparent 100%);
+  box-shadow: 0 0 8px rgba(140, 101, 23, 0.25);
+}
+
+[data-theme="day"] .timeline-content {
+  background: linear-gradient(145deg, #FFFFFF 0%, #FAF5ED 100%);
+  border-color: rgba(140, 101, 23, 0.35);
+  box-shadow: 0 10px 30px rgba(74, 59, 62, 0.08);
+}
+
+[data-theme="day"] .timeline-content:hover {
+  border-color: #8C6517;
+  box-shadow: 0 12px 35px rgba(140, 101, 23, 0.2);
+}
+
+[data-theme="day"] .timeline-node {
+  background: linear-gradient(135deg, #8C6517 0%, #B8860B 100%);
+  border-color: #FAF4EA;
+  box-shadow: 0 0 0 2px #8C6517, 0 0 15px rgba(140, 101, 23, 0.35);
+}
+
+[data-theme="day"] .timeline-node::after {
+  color: #FFFFFF;
+}
+
+[data-theme="day"] .timeline-date {
+  color: #7A5210;
+}
+
+[data-theme="day"] .timeline-title {
+  color: #1C1315;
+}
+
+[data-theme="day"] .timeline-desc {
+  color: #544447;
 }

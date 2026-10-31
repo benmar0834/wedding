@@ -167,3 +167,80 @@
   color: #120A1A;
   box-shadow: 0 0 20px rgba(229, 193, 88, 0.5);
 }
+
+/* Responsive Scratch Card */
+@media (max-width: 600px) {
+  .scratch-section {
+    padding: 4.5rem 1rem;
+  }
+
+  .scratch-card-container {
+    padding: 2rem 1.1rem;
+    border-radius: 16px;
+  }
+
+  .scratch-stage {
+    margin-bottom: 1.4rem;
+  }
+
+  .scratch-reveal-message {
+    font-size: 1.15rem;
+    padding: 1.1rem;
+    word-break: break-word;
+  }
+}
+
+/* ===================================================================
+   MODO DÍA — RASPÁ PARA DESCUBRIR
+   =================================================================== */
+[data-theme="day"] .scratch-section {
+  background: linear-gradient(180deg, #FAF7F2 0%, #F5EFE6 100%);
+}
+
+[data-theme="day"] .scratch-card-container {
+  background: linear-gradient(145deg, #FFFFFF 0%, #FAF6F0 100%);
+  border-color: rgba(140, 101, 23, 0.35);
+  box-shadow: 0 15px 45px rgba(74, 59, 62, 0.08);
+}
+
+[data-theme="day"] .scratch-card-container::before {
+  border-color: rgba(140, 101, 23, 0.2);
+}
+
+[data-theme="day"] .scratch-stage {
+  border-color: #8C6517;
+  box-shadow: 0 10px 25px rgba(74, 59, 62, 0.15);
+}
+
+[data-theme="day"] .scratch-reveal-message {
+  background: #F8F3EA;
+  color: #1C1315;
+  border-color: rgba(140, 101, 23, 0.35);
+  box-shadow: 0 4px 15px rgba(74, 59, 62, 0.08);
+  text-shadow: none;
+}
+
+[data-theme="day"] .btn-reveal-alt {
+  background: #FFFFFF;
+  color: #7A5210;
+  border-color: rgba(140, 101, 23, 0.4);
+}
+
+[data-theme="day"] .btn-reveal-alt:hover {
+  background: #8C6517;
+  color: #FFFFFF;
+  border-color: #8C6517;
+}
+
+[data-theme="day"] .scratch-progress-wrapper {
+  color: #544447;
+}
+
+[data-theme="day"] .scratch-progress-bar {
+  background: rgba(140, 101, 23, 0.2);
+}
+
+[data-theme="day"] .scratch-progress-fill {
+  background: #8C6517;
+  box-shadow: none;
+}

@@ -208,12 +208,42 @@ textarea.form-control {
 }
 
 @media (max-width: 600px) {
+  .rsvp-section {
+    padding: 4.5rem 1rem;
+  }
+
   .rsvp-card {
-    padding: 2.6rem 1.6rem;
+    padding: 2.2rem 1.1rem;
+    border-radius: 16px;
   }
 
   .attendance-options-grid {
     grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .attendance-radio-label {
+    padding: 0.95rem 0.75rem;
+    font-size: 0.82rem;
+    text-align: center;
+  }
+
+  .invitation-code-box {
+    padding: 1.1rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .invitation-code-input-group {
+    width: 100%;
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .invitation-code-input {
+    flex: 1;
+    min-width: 0;
   }
 }
 
@@ -221,37 +251,65 @@ textarea.form-control {
    MODO DÍA — FORMULARIO DE CONFIRMACIÓN RSVP
    =================================================================== */
 [data-theme="day"] .rsvp-section {
-  background: linear-gradient(180deg, rgba(250, 247, 242, 0.95) 0%, rgba(244, 239, 230, 0.9) 100%);
+  background: linear-gradient(180deg, #F8F4EC 0%, #FAF7F2 100%);
 }
 
 [data-theme="day"] .rsvp-card {
   background: linear-gradient(145deg, #FFFFFF 0%, #FAF5ED 100%);
-  border-color: rgba(212, 175, 55, 0.45);
-  box-shadow: 0 15px 45px rgba(74, 59, 62, 0.1);
+  border-color: rgba(140, 101, 23, 0.4);
+  box-shadow: 0 15px 45px rgba(74, 59, 62, 0.08);
 }
 
 [data-theme="day"] .invitation-code-box {
   background: #F8F3EA;
-  border-color: rgba(212, 175, 55, 0.45);
+  border-color: rgba(140, 101, 23, 0.4);
 }
 
-[data-theme="day"] .attendance-option {
+[data-theme="day"] .invitation-code-label {
+  color: #7A5210;
+}
+
+[data-theme="day"] .invitation-code-name {
+  color: #1C1315;
+}
+
+[data-theme="day"] .invitation-code-input {
   background: #FFFFFF;
-  border-color: rgba(212, 175, 55, 0.35);
-  color: #2D2326;
-}
-
-[data-theme="day"] .attendance-option:hover {
-  border-color: #D4AF37;
-}
-
-[data-theme="day"] .attendance-option.selected {
-  background: rgba(212, 175, 55, 0.12);
-  border-color: #D4AF37;
-  color: #8C6517;
+  color: #1C1315;
+  border-color: rgba(140, 101, 23, 0.4);
 }
 
 [data-theme="day"] .form-label {
-  color: #2D2326;
+  color: #1C1315;
+}
+
+[data-theme="day"] .form-control {
+  background: #FFFFFF;
+  color: #1C1315;
+  border-color: rgba(140, 101, 23, 0.4);
+}
+
+[data-theme="day"] .form-control:focus {
+  border-color: #8C6517;
+  box-shadow: 0 0 15px rgba(140, 101, 23, 0.25);
+}
+
+[data-theme="day"] .attendance-radio-label {
+  background: #FFFFFF;
+  border-color: rgba(140, 101, 23, 0.35);
+  color: #1C1315;
+}
+
+[data-theme="day"] .attendance-radio-label:hover {
+  border-color: #8C6517;
+  background: #FAF5ED;
+  color: #1C1315;
+}
+
+[data-theme="day"] .attendance-radio-label.selected {
+  background: linear-gradient(135deg, #8C6517 0%, #B8860B 100%);
+  border-color: transparent;
+  color: #FFFFFF;
+  box-shadow: 0 4px 15px rgba(140, 101, 23, 0.3);
 }
 

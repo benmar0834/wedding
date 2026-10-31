@@ -344,13 +344,36 @@ h1, h2, h3, h4 {
   left: 10px;
   right: 10px;
   bottom: 10px;
-  border: 1px dashed rgba(229, 193, 88, 0.25);
-  border-radius: 14px;
+  border: 1px solid rgba(229, 193, 88, 0.35);
+  border-radius: 16px;
   pointer-events: none;
-  background-image: url('../assets/icons/card-filigree-frame.svg');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  opacity: 0.88;
+  z-index: 0;
+}
+
+.luxury-card::after,
+.hero-content::after,
+.letter-card::after,
+.venue-carousel-card::after,
+.rsvp-card::after {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 1px dashed rgba(229, 193, 88, 0.2);
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content > *,
+.letter-card > *,
+.venue-carousel-card > *,
+.rsvp-card > *,
+.luxury-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ===================================================================
@@ -1219,11 +1242,36 @@ h1, h2, h3, h4 {
 /* ===================================================================
    RESPONSIVE DESIGN (MOBILE FIRST)
    =================================================================== */
+/* ===================================================================
+   RESPONSIVE DESIGN (MOBILE FIRST & CONTAINMENT)
+   =================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, a, label, div {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  box-sizing: border-box;
+}
+
 @media (max-width: 900px) {
   .location-grid,
   .dress-code-wrapper {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2.2rem;
   }
 
   .nav-menu {
@@ -1261,62 +1309,154 @@ h1, h2, h3, h4 {
     padding-bottom: 74px;
   }
 
-  .hero-names {
-    font-size: 2.8rem;
-    line-height: 1.15;
+  .section-wrapper {
+    padding: 4.5rem 0;
   }
 
-  .hero-tagline {
-    font-size: 2rem;
-    margin-bottom: 1.8rem;
+  .section-header {
+    margin-bottom: 2.5rem;
+    padding: 0 0.5rem;
   }
 
-  .hero-content {
-    padding: 2.8rem 1.4rem;
-  }
-
-  .hero-details-row {
-    gap: 0.8rem;
-    margin-bottom: 2rem;
-  }
-
-  .hero-detail-item {
-    min-width: 135px;
-    padding: 0.8rem 1rem;
-  }
-
-  .hero-detail-val {
-    font-size: 1.18rem;
+  .section-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
   }
 
   .section-title {
-    font-size: 2.05rem;
+    font-size: clamp(1.5rem, 5.8vw, 2rem);
+    letter-spacing: 0.05em;
+    line-height: 1.25;
+    padding: 0 0.4rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.12rem;
+    padding: 0 0.5rem;
+  }
+
+  .hero-names {
+    font-size: clamp(1.85rem, 7.5vw, 2.6rem);
+    letter-spacing: 0.08em;
+    line-height: 1.2;
+    padding: 0 0.3rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-content {
+    padding: 2.6rem 1.2rem;
+    border-radius: 18px;
+  }
+
+  .hero-details-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem;
+    width: 100%;
+    margin-bottom: 1.8rem;
+  }
+
+  .hero-detail-item {
+    min-width: 0;
+    width: 100%;
+    padding: 0.8rem 0.6rem;
+    text-align: center;
+  }
+
+  .hero-detail-val {
+    font-size: 1.05rem;
+  }
+
+  .hero-detail-label {
+    font-size: 0.68rem;
   }
 
   .countdown-box {
-    gap: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.45rem;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
   }
 
   .countdown-unit {
-    min-width: 70px;
-    padding: 1.2rem 0.5rem;
+    min-width: 0;
+    width: 100%;
+    padding: 0.85rem 0.2rem;
+    border-radius: 12px;
   }
 
   .countdown-num {
-    font-size: 2.2rem;
+    font-size: 1.65rem;
+    line-height: 1.1;
+  }
+
+  .countdown-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+
+  .countdown-message {
+    font-size: 0.85rem;
+    padding: 0 0.5rem;
   }
 
   .letter-card {
-    padding: 3rem 1.5rem;
+    padding: 2.8rem 1.3rem;
+    border-radius: 18px;
   }
 
   .letter-body {
-    font-size: 1.18rem;
-    line-height: 1.9;
+    font-size: 1.08rem;
+    line-height: 1.85;
+  }
+
+  .letter-lead {
+    font-size: 1.16rem;
   }
 
   .location-info-card {
-    padding: 2rem 1.4rem;
+    padding: 1.8rem 1.2rem;
+    border-radius: 18px;
+  }
+
+  .dress-code-wrapper {
+    gap: 1.8rem;
+  }
+
+  .dress-code-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .dress-card-mini {
+    padding: 1.4rem 1.1rem;
+  }
+
+  .gifts-card {
+    padding: 2rem 1.2rem;
+    border-radius: 18px;
+  }
+
+  .bank-details-box {
+    padding: 1rem 0.8rem;
+  }
+
+  .bank-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    padding: 0.75rem 0.3rem;
+  }
+
+  .bank-val {
+    font-size: 0.98rem;
+    word-break: break-all;
   }
 
   .music-player-widget {
@@ -1326,13 +1466,55 @@ h1, h2, h3, h4 {
   }
 
   .music-info {
-    max-width: 120px;
+    max-width: 110px;
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+
+  .hero-content {
+    padding: 2.2rem 0.9rem;
+  }
+
+  .hero-names {
+    font-size: 1.7rem;
+    letter-spacing: 0.06em;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+    letter-spacing: 0.04em;
+  }
+
+  .countdown-box {
+    gap: 0.35rem;
+  }
+
+  .countdown-unit {
+    padding: 0.75rem 0.15rem;
+  }
+
+  .countdown-num {
+    font-size: 1.45rem;
+  }
+
+  .letter-card {
+    padding: 2.2rem 1rem;
+  }
+
+  .location-info-card,
+  .venue-carousel-card,
+  .gifts-card {
+    padding: 1.6rem 0.9rem;
   }
 }
 
 /* ===================================================================
    MODO DÍA (08:00 a 20:00 hs — HORARIO OFICIAL DE ARGENTINA)
-   Estética: Marfil Luminoso, Champán Cálido, Oro Pulido, Textura Editorial
+   Estética: Marfil Luminoso, Champán Cálido, Oro Pulido y Alto Contraste
    =================================================================== */
 [data-theme="day"] {
   --color-night-black: #FAF7F2;
@@ -1340,170 +1522,384 @@ h1, h2, h3, h4 {
   --color-night-plum-deep: #F5EFE6;
   --color-night-plum: #EFE6D8;
   --color-night-plum-light: #E8DCC8;
-  --color-night-violet: #D4AF37;
-  --color-night-wine: #9E7D2B;
+  --color-night-violet: #8C6517;
+  --color-night-wine: #6B4C12;
 
-  /* Textos y Contrastes */
-  --color-text-main: #2D2326;
-  --color-text-muted: #635356;
-  --color-text-light: #8E7D80;
-  --color-border-gold: rgba(212, 175, 55, 0.45);
-  --color-border-subtle: rgba(212, 175, 55, 0.22);
+  /* Oro Cálido y Profundo con Contraste Óptimo */
+  --color-gold: #8C6517;
+  --color-gold-warm: #6E4E10;
+  --color-gold-light: #52380A;
+  --color-gold-dark: #3E2907;
+
+  /* Textos y Contrastes de Alta Legibilidad */
+  --color-text-main: #1C1315;
+  --color-text-muted: #544447;
+  --color-text-light: #7E6C70;
+  --color-border-gold: rgba(140, 101, 23, 0.42);
+  --color-border-subtle: rgba(140, 101, 23, 0.22);
 
   /* Gradientes Día */
-  --gradient-night-card: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 246, 240, 0.98) 100%);
-  --gradient-night-acrylic: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 243, 235, 0.95) 100%);
+  --gradient-gold-foil: linear-gradient(135deg, #7A5210 0%, #C49830 50%, #6E4E10 100%);
+  --gradient-gold-soft: linear-gradient(135deg, #8C6517 0%, #A67C24 50%, #6E4E10 100%);
+  --gradient-night-card: linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(250, 246, 240, 0.98) 100%);
+  --gradient-night-acrylic: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 243, 235, 0.96) 100%);
   --gradient-hero-overlay: radial-gradient(circle at 50% 30%, rgba(255, 253, 249, 0.5) 0%, rgba(244, 239, 230, 0.96) 80%);
 
   /* Sombras Suaves */
-  --shadow-card-night: 0 12px 35px rgba(74, 59, 62, 0.08), 0 2px 6px rgba(212, 175, 55, 0.15);
-  --shadow-gold-glow: 0 0 25px rgba(212, 175, 55, 0.25);
-  --shadow-gold-hover: 0 0 35px rgba(212, 175, 55, 0.45), 0 10px 25px rgba(74, 59, 62, 0.12);
+  --shadow-card-night: 0 12px 35px rgba(74, 59, 62, 0.08), 0 2px 6px rgba(140, 101, 23, 0.12);
+  --shadow-gold-glow: 0 0 25px rgba(140, 101, 23, 0.22);
+  --shadow-gold-hover: 0 0 35px rgba(140, 101, 23, 0.35), 0 10px 25px rgba(74, 59, 62, 0.12);
 }
 
 [data-theme="day"] body {
-  color: #2D2326;
+  color: #1C1315;
   background-color: #FAF7F2;
   background-image: 
     radial-gradient(circle at 50% 0%, #FFFDF9 0%, #FAF7F2 45%, #F4EFE6 100%);
 }
 
+[data-theme="day"] body::before {
+  opacity: 0.035;
+  background-image: 
+    radial-gradient(circle at 50% 50%, #8C6517 1px, transparent 1px),
+    radial-gradient(circle at 0% 0%, #8C6517 1px, transparent 1px);
+}
+
+[data-theme="day"] .section-eyebrow {
+  color: #7A5210;
+  font-weight: 700;
+}
+
 [data-theme="day"] .section-title {
-  color: #2D2326;
-  text-shadow: 0 2px 10px rgba(74, 59, 62, 0.1);
+  color: #1C1315;
+  text-shadow: 0 2px 10px rgba(74, 59, 62, 0.08);
 }
 
-[data-theme="day"] .wedding-navbar {
-  background: rgba(255, 253, 249, 0.94);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.28);
+[data-theme="day"] .section-subtitle {
+  color: #544447;
 }
 
-[data-theme="day"] .nav-brand-text {
-  color: #2D2326;
-}
-
-[data-theme="day"] .nav-link {
-  color: #635356;
-}
-
-[data-theme="day"] .nav-link:hover {
-  color: #B88928;
-}
-
-[data-theme="day"] .hero-content {
-  background: rgba(255, 255, 255, 0.92);
-  border: 1.5px solid rgba(212, 175, 55, 0.45);
-  box-shadow: 0 20px 50px rgba(74, 59, 62, 0.1), 0 0 25px rgba(212, 175, 55, 0.15);
-}
-
-[data-theme="day"] .hero-names {
-  background: linear-gradient(135deg, #2D2326 0%, #B88928 50%, #2D2326 100%);
+[data-theme="day"] .gold-gradient-text {
+  background: linear-gradient(135deg, #4A330B 0%, #8C6517 50%, #52380A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: none;
 }
 
+[data-theme="day"] .ornament-line {
+  background: linear-gradient(90deg, transparent, #8C6517, transparent);
+}
+
+[data-theme="day"] .ornament-icon {
+  fill: #8C6517;
+  filter: drop-shadow(0 0 4px rgba(140, 101, 23, 0.3));
+}
+
+[data-theme="day"] .wedding-navbar {
+  background: rgba(255, 253, 249, 0.95);
+  border-bottom: 1px solid rgba(140, 101, 23, 0.28);
+}
+
+[data-theme="day"] .nav-brand-text {
+  color: #1C1315;
+}
+
+[data-theme="day"] .nav-link {
+  color: #544447;
+}
+
+[data-theme="day"] .nav-link:hover {
+  color: #8C6517;
+}
+
+[data-theme="day"] .hero-content {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1.5px solid rgba(140, 101, 23, 0.4);
+  box-shadow: 0 20px 50px rgba(74, 59, 62, 0.1), 0 0 25px rgba(140, 101, 23, 0.12);
+}
+
+[data-theme="day"] .hero-content::before,
+[data-theme="day"] .letter-card::before,
+[data-theme="day"] .venue-carousel-card::before,
+[data-theme="day"] .rsvp-card::before,
+[data-theme="day"] .luxury-card::before {
+  border-color: rgba(140, 101, 23, 0.35);
+}
+
+[data-theme="day"] .hero-content::after,
+[data-theme="day"] .letter-card::after,
+[data-theme="day"] .venue-carousel-card::after,
+[data-theme="day"] .rsvp-card::after,
+[data-theme="day"] .luxury-card::after {
+  border-color: rgba(140, 101, 23, 0.2);
+}
+
+[data-theme="day"] .hero-subtitle {
+  color: #544447;
+}
+
+[data-theme="day"] .hero-names {
+  background: linear-gradient(135deg, #1C1215 0%, #7A5210 50%, #1C1215 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+}
+
+[data-theme="day"] .hero-tagline {
+  color: #7A5210;
+}
+
+[data-theme="day"] .hero-detail-item {
+  background: #FFFFFF;
+  border-color: rgba(140, 101, 23, 0.35);
+}
+
+[data-theme="day"] .hero-detail-label {
+  color: #7A5210;
+  font-weight: 700;
+}
+
+[data-theme="day"] .hero-detail-val {
+  color: #1C1315;
+}
+
 [data-theme="day"] .countdown-unit {
   background: #FFFFFF;
-  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  border: 1.5px solid rgba(140, 101, 23, 0.4);
   box-shadow: 0 10px 25px rgba(74, 59, 62, 0.06);
 }
 
 [data-theme="day"] .countdown-num {
-  color: #2D2326;
+  color: #1C1315;
   text-shadow: none;
+}
+
+[data-theme="day"] .countdown-label {
+  color: #7A5210;
+  font-weight: 700;
+}
+
+[data-theme="day"] .countdown-message {
+  color: #544447;
+}
+
+[data-theme="day"] .btn-gold {
+  background: linear-gradient(135deg, #8C6517 0%, #B8860B 50%, #6E4E10 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 22px rgba(140, 101, 23, 0.28);
+}
+
+[data-theme="day"] .btn-gold:hover {
+  background: linear-gradient(135deg, #6E4E10 0%, #8C6517 100%);
+  color: #FFFFFF;
+  box-shadow: 0 10px 28px rgba(140, 101, 23, 0.45);
+}
+
+[data-theme="day"] .btn-outline-gold {
+  color: #7A5210;
+  border-color: #8C6517;
+  background: transparent;
+}
+
+[data-theme="day"] .btn-outline-gold:hover {
+  background: #8C6517;
+  color: #FFFFFF;
+  border-color: #8C6517;
 }
 
 [data-theme="day"] .letter-card {
   background: linear-gradient(145deg, #FFFFFF 0%, #FAF5ED 100%);
-  border: 1.5px solid rgba(212, 175, 55, 0.4);
+  border: 1.5px solid rgba(140, 101, 23, 0.35);
   box-shadow: 0 15px 40px rgba(74, 59, 62, 0.08);
 }
 
 [data-theme="day"] .letter-body {
-  color: #3B2C2F;
+  color: #2D2124;
+}
+
+[data-theme="day"] .letter-signature-prefix {
+  color: #544447;
+}
+
+[data-theme="day"] .letter-signature-monogram {
+  color: #7A5210;
+}
+
+[data-theme="day"] .letter-closing-badge {
+  background: #F8F3EA;
+  color: #1C1315;
+  border: 1px solid rgba(140, 101, 23, 0.35);
 }
 
 [data-theme="day"] .section-icon-badge {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  box-shadow: 0 6px 20px rgba(74, 59, 62, 0.08), 0 0 15px rgba(212, 175, 55, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(140, 101, 23, 0.4);
+  box-shadow: 0 6px 20px rgba(74, 59, 62, 0.08), 0 0 15px rgba(140, 101, 23, 0.15);
 }
 
 [data-theme="day"] .location-info-card,
 [data-theme="day"] .location-map-card,
+[data-theme="day"] .venue-carousel-card,
 [data-theme="day"] .dress-card-mini,
 [data-theme="day"] .gifts-card,
 [data-theme="day"] .rsvp-card,
 [data-theme="day"] .admin-panel-card {
   background: linear-gradient(145deg, #FFFFFF 0%, #FAF6F0 100%);
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: rgba(140, 101, 23, 0.38);
   box-shadow: 0 12px 35px rgba(74, 59, 62, 0.08);
+}
+
+[data-theme="day"] .venue-carousel-tag {
+  color: #7A5210;
+}
+
+[data-theme="day"] .venue-carousel-tag svg {
+  fill: #7A5210;
+}
+
+[data-theme="day"] .venue-carousel-counter {
+  color: #544447;
+}
+
+[data-theme="day"] .venue-carousel {
+  border-color: rgba(140, 101, 23, 0.35);
+  box-shadow: 0 15px 35px rgba(74, 59, 62, 0.1);
+}
+
+[data-theme="day"] .venue-carousel-nav {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(140, 101, 23, 0.45);
+}
+
+[data-theme="day"] .venue-carousel-nav svg {
+  fill: #7A5210;
+}
+
+[data-theme="day"] .venue-carousel-nav:hover {
+  background: #8C6517;
+}
+
+[data-theme="day"] .venue-carousel-nav:hover svg {
+  fill: #FFFFFF;
+}
+
+[data-theme="day"] .venue-dot {
+  background: rgba(140, 101, 23, 0.25);
+  border-color: rgba(140, 101, 23, 0.45);
+}
+
+[data-theme="day"] .venue-dot.active {
+  background: #8C6517;
 }
 
 [data-theme="day"] .dress-card-mini h4,
 [data-theme="day"] .location-detail-title,
 [data-theme="day"] .gifts-title,
 [data-theme="day"] .timeline-title {
-  color: #2D2326;
+  color: #1C1315;
+}
+
+[data-theme="day"] .dress-code-badge {
+  background: linear-gradient(135deg, #8C6517 0%, #B8860B 100%);
+  color: #FFFFFF;
 }
 
 [data-theme="day"] .location-detail-desc,
 [data-theme="day"] .dress-card-mini p,
 [data-theme="day"] .gifts-desc,
 [data-theme="day"] .timeline-desc {
-  color: #635356;
+  color: #544447;
+}
+
+[data-theme="day"] .bank-details-box {
+  background: #F9F5EE;
+  border-color: rgba(140, 101, 23, 0.35);
+}
+
+[data-theme="day"] .bank-row {
+  border-bottom-color: rgba(140, 101, 23, 0.18);
+}
+
+[data-theme="day"] .bank-label {
+  color: #7A5210;
+}
+
+[data-theme="day"] .bank-val {
+  color: #1C1315;
+}
+
+[data-theme="day"] .form-label {
+  color: #1C1315;
 }
 
 [data-theme="day"] .form-control {
-  background: #FFFFFF;
-  border-color: rgba(212, 175, 55, 0.45);
-  color: #2D2326;
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(140, 101, 23, 0.45) !important;
+  color: #1C1315 !important;
 }
 
 [data-theme="day"] .form-control:focus {
-  border-color: #D4AF37;
-  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+  border-color: #8C6517 !important;
+  box-shadow: 0 0 15px rgba(140, 101, 23, 0.25) !important;
+}
+
+[data-theme="day"] .form-control::placeholder {
+  color: #7E6C70;
 }
 
 [data-theme="day"] .mobile-quick-bar {
   background: rgba(255, 253, 249, 0.96);
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  border-top: 1px solid rgba(140, 101, 23, 0.25);
   box-shadow: 0 -4px 20px rgba(74, 59, 62, 0.08);
 }
 
 [data-theme="day"] .mobile-quick-btn span {
-  color: #635356;
+  color: #544447;
 }
 
 [data-theme="day"] .mobile-quick-btn:hover span,
 [data-theme="day"] .mobile-quick-btn.active span {
-  color: #9E7D2B;
+  color: #8C6517;
 }
 
 [data-theme="day"] .music-player-widget {
-  background: rgba(255, 253, 249, 0.92);
-  border-color: rgba(212, 175, 55, 0.45);
+  background: rgba(255, 253, 249, 0.94);
+  border-color: rgba(140, 101, 23, 0.4);
   box-shadow: 0 10px 30px rgba(74, 59, 62, 0.12);
 }
 
 [data-theme="day"] .music-title-text {
-  color: #2D2326;
+  color: #1C1315;
+}
+
+[data-theme="day"] .music-artist-text {
+  color: #544447;
+}
+
+[data-theme="day"] .music-btn {
+  background: #8C6517;
+  color: #FFFFFF;
 }
 
 [data-theme="day"] .wedding-footer {
-  background: #F4EFE6;
-  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  background: #1C1315;
+  border-top: 2px solid #8C6517;
+  color: #EFE8E1;
 }
 
 [data-theme="day"] .footer-names {
-  color: #2D2326;
+  color: #FAF6F0;
 }
 
 [data-theme="day"] .footer-date,
 [data-theme="day"] .footer-closing,
 [data-theme="day"] .footer-bottom {
-  color: #7A696C;
+  color: #BBAEB2;
+}
+
+[data-theme="day"] .footer-admin-link {
+  color: #E5C158;
 }
 
 

@@ -219,6 +219,31 @@
 }
 
 @media (max-width: 768px) {
+  .gallery-section {
+    padding: 4.5rem 1rem;
+  }
+
+  .gallery-tabs {
+    gap: 0.6rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .gallery-tab-btn {
+    padding: 0.65rem 1.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .polaroid-caption {
+    font-size: 1.6rem;
+    word-break: break-word;
+  }
+
   .lightbox-prev { left: 10px; }
   .lightbox-next { right: 10px; }
   .lightbox-btn { width: 44px; height: 44px; }
@@ -228,27 +253,40 @@
    MODO DÍA — GALERÍAS Y POLAROIDS FINE ART
    =================================================================== */
 [data-theme="day"] .gallery-section {
-  background: linear-gradient(180deg, rgba(244, 239, 230, 0.9) 0%, rgba(250, 247, 242, 0.95) 100%);
+  background: linear-gradient(180deg, #F8F4EC 0%, #FAF7F2 100%);
 }
 
 [data-theme="day"] .polaroid-card {
   background: #FFFFFF;
-  border-color: rgba(212, 175, 55, 0.45);
-  box-shadow: 0 12px 35px rgba(74, 59, 62, 0.1), 0 2px 6px rgba(212, 175, 55, 0.15);
+  border-color: rgba(140, 101, 23, 0.4);
+  box-shadow: 0 12px 35px rgba(74, 59, 62, 0.08), 0 2px 6px rgba(140, 101, 23, 0.12);
 }
 
 [data-theme="day"] .polaroid-caption {
-  color: #2D2326;
+  color: #1C1315;
+  text-shadow: none;
+}
+
+[data-theme="day"] .polaroid-tag {
+  color: #7A5210;
+  font-weight: 700;
 }
 
 [data-theme="day"] .gallery-tab-btn {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: rgba(212, 175, 55, 0.4);
-  color: #635356;
+  background: #FFFFFF;
+  border-color: rgba(140, 101, 23, 0.35);
+  color: #544447;
+}
+
+[data-theme="day"] .gallery-tab-btn:hover {
+  border-color: #8C6517;
+  color: #1C1315;
 }
 
 [data-theme="day"] .gallery-tab-btn.active {
-  background: var(--gradient-gold-foil);
-  color: #2D2326;
+  background: linear-gradient(135deg, #8C6517 0%, #B8860B 100%);
+  color: #FFFFFF;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(140, 101, 23, 0.3);
 }
 
